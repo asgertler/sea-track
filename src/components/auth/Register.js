@@ -93,7 +93,9 @@ export const Register = (props) => {
 
                     <input ref={zip} type="text" name="zip" className="form-control" pattern="[0-9]{5}" maxLength="5" placeholder="Zipcode" required />
 
-                    <button type="button"> Cancel </button>
+                    <button type="button" onClick={() => {
+                        history.push("/login")
+                    }}> Cancel </button>
                     <button type="submit"> Register </button>
                 </fieldset>
             </form>
