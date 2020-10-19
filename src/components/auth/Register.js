@@ -6,12 +6,11 @@ export const Register = (props) => {
     const firstName = useRef()
     const lastName = useRef()
     const email = useRef()
-    const verifyPassword = useRef()
     const conflictDialog = useRef()
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
+        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }
@@ -23,7 +22,7 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("http://localhost:8088/customers", {
+                    fetch("http://localhost:8088/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -36,7 +35,7 @@ export const Register = (props) => {
                         .then(_ => _.json())
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
-                                localStorage.setItem("kennel_customer", createdUser.id)
+                                localStorage.setItem("seaTrack_customer", createdUser.id)
                                 history.push("/")
                             }
                         })
@@ -45,7 +44,7 @@ export const Register = (props) => {
                     conflictDialog.current.showModal()
                 }
             })
-        
+
     }
 
     return (
