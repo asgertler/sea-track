@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
+import { Container, Form } from "semantic-ui-react"
 import "./Login.css"
 
 
@@ -36,28 +37,29 @@ export const Login = props => {
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
 
-            <section>
-                <form className="form--login" onSubmit={handleLogin}>
+            <Container className="form--container" text={true}>
+                <Form className="form--login" onSubmit={handleLogin}>
                     <h1>Sea Track</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                    <h2>Login</h2>
+
+                    <Form.Field className="login--field">
+                        <label> Email </label>
                         <input ref={email} type="email"
                             id="email"
-                            className="form-control"
+                            className="email--input"
                             placeholder="Email address"
                             required autoFocus />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
+
+                        <Form.Button primary className="button--submit" type="submit">
                             Sign in
-                        </button>
-                    </fieldset>
-                </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
-            </section>
+                        </Form.Button>
+                    </Form.Field>
+                </Form>
+
+                <div className="link--register">
+                    <Link to="/register">Not a member yet?</Link>
+                </div>
+            </Container>
         </main>
     )
 }
