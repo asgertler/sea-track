@@ -40,17 +40,17 @@ export const Login = props => {
             <Container className="form--container" text={true}>
                 <Form className="form--login" onSubmit={handleLogin}>
                     <h1>Sea Track</h1>
-                    <h2>Please sign in</h2>
+                    <h2>Login</h2>
 
                     <Form.Field className="login--field">
                         <label> Email </label>
                         <input ref={email} type="email"
                             id="email"
-                            className="form-control"
+                            className="email--input"
                             placeholder="Email address"
                             required autoFocus />
 
-                        <Form.Button primary type="submit">
+                        <Form.Button primary className="button--submit" type="submit">
                             Sign in
                         </Form.Button>
                     </Form.Field>

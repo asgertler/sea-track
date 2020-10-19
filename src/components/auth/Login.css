@@ -15,11 +15,18 @@ h2 {
 }
 
 .form--container {
-    background-color: tomato;
+    background-color: white;
     padding: 50px;
     margin: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.button--submit {
+    margin-top: 10px !important;
 }
 
 .link--register {
     text-align: center;
+    margin-top: 25px;
 }
