@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
-import { Button, Container, Form } from "semantic-ui-react"
+import { Container, Form } from "semantic-ui-react"
 import "./Login.css"
 
 
@@ -50,9 +50,9 @@ export const Login = props => {
                             placeholder="Email address"
                             required autoFocus />
 
-                        <Button primary type="submit">
+                        <Form.Button primary type="submit">
                             Sign in
-                        </Button>
+                        </Form.Button>
                     </Form.Field>
                 </Form>
 

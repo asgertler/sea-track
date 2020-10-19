@@ -1,10 +1,25 @@
+h1 {
+    display: none;
+}
+
+h2 {
+    margin-top: 0 !important;
+}
+
 .container--login {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
 }
 
 .form--container {
     background-color: tomato;
     padding: 50px;
     margin: auto;
+}
+
+.link--register {
+    text-align: center;
 }
