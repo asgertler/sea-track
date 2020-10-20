@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { AquariumContext } from "./AquariumProvider"
-import { Button, Form } from "semantic-ui-react"
+import { Form } from "semantic-ui-react"
 import "./Aquarium.css"
 
 export const AquariumForm = () => {
@@ -20,21 +20,50 @@ export const AquariumForm = () => {
         setAquarium(newAquarium)
     }
 
-
+    const constructNewAquarium = () => {
+        addAquarium({
+            userId: parseInt(localStorage.getItem("seaTrack_user")),
+            name: aquarium.name,
+            gal: aquarium.size
+        })
+    }
 
     return (
         <Container>
             <Form className="aquariumForm" onSubmit={evt => {
                 evt.preventDefault()
+                constructNewAquarium()
             }}>
+                <Form.Header as="h2" className="aquariumForm_title">
+                    {aquariumId ? "Edit Aquarium" : "Add Aquarium"}
+                </Form.Header>
+
                 <h2 className="aquariumForm_title">{aquariumId ? "Edit Aquarium" : "Add Aquarium"}</h2>
 
                 <Form.Field>
                     <label>Aquarium Name</label>
-                    <input required placeholder="e.g. Living Room Reef" />
+                    <Form.Input
+                        required
+                        type="text"
+                        placeholder="e.g. Living Room Reef"
+                        id="aquariumName"
+                        name="name"
+                        onChange={handleControlledInputChange}
+                    />
 
                     <label>Tank Size (gal)</label>
-                    <input required type="number" placeholder="e.g. 150" />
+                    <Form.Input
+                        required
+                        type="number"
+                        placeholder="e.g. 150"
+                        id="aquariumSize"
+                        name="size"
+                        onChange={handleControlledInputChange}
+                    />
+
+                    <Form.Button primary className="button--submit" type="submit">
+                        Save
+                    </Form.Button>
                 </Form.Field>
             </Form>
         </Container>
