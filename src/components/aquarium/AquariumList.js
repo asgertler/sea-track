@@ -18,7 +18,7 @@ export const AquariumList = () => {
 
     return (
         <>
-            <Button className="addAquarium">
+            <Button inverted circular basic icon className="addAquarium">
                 <Icon name="plus" />
             </Button>
 

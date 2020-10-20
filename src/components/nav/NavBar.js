@@ -10,15 +10,13 @@ export const NavBar = (props) => {
 
     return (
         <>
-            <ul className="navbar">
-                <li className="navbar__item active">
-                    <Link className="navbar__link" to="/">Sea Track</Link>
-                </li>
-            </ul>
+            <section className="navbar">
+                <Link className="navbar__logo" to="/">Sea Track</Link>
 
-            <AquariumProvider>
-                <AquariumList />
-            </AquariumProvider>
+                <AquariumProvider>
+                    <AquariumList />
+                </AquariumProvider>
+            </section>
         </>
     )
 }

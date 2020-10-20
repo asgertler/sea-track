@@ -1,10 +1,12 @@
 .navbar {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: left;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #161A66;
+    padding: 10px;
 }
 
-.navbar__item {
-    flex-basis: 20%;
-    list-style-type: none;
+.navbar__logo {
+    margin-bottom: 25px;
 }

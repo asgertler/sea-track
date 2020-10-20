@@ -13,8 +13,10 @@ export const Dashboard = () => (
                 if (localStorage.getItem("seaTrack_user")) {
                     return (
                         <>
-                            <NavBar />
-                            <ApplicationViews />
+                            <div className="dashboardView">
+                                <NavBar />
+                                <ApplicationViews />
+                            </div>
                         </>
                     )
                 } else {
