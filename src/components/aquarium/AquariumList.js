@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import { AquariumContext } from "./AquariumProvider"
 import { AquariumCard } from "./AquariumCard"
 import { Button, Icon } from "semantic-ui-react"
@@ -13,6 +14,8 @@ export const AquariumList = () => {
         getAquariums()
     }, [])
 
+    const history = useHistory()
+
     const userAquariums = aquariums.filter(aquarium => aquarium.userId === currentUser)
 
     return (
@@ -21,7 +24,8 @@ export const AquariumList = () => {
                 <AquariumCard key={userAquariums.id} aquarium={userAquariums} />
             </div>
 
-            <Button inverted circular basic icon className="addAquarium">
+            <Button inverted circular basic icon className="addAquarium"
+                onClick={() => { history.push("/aquarium/form") }}>
                 <Icon name="plus" />
             </Button>
         </>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { AquariumContext } from "./AquariumProvider"
-import { Form } from "semantic-ui-react"
+import { Container, Form } from "semantic-ui-react"
 import "./Aquarium.css"
 
 export const AquariumForm = () => {
@@ -34,10 +34,6 @@ export const AquariumForm = () => {
                 evt.preventDefault()
                 constructNewAquarium()
             }}>
-                <Form.Header as="h2" className="aquariumForm_title">
-                    {aquariumId ? "Edit Aquarium" : "Add Aquarium"}
-                </Form.Header>
-
                 <h2 className="aquariumForm_title">{aquariumId ? "Edit Aquarium" : "Add Aquarium"}</h2>
 
                 <Form.Field>
