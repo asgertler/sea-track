@@ -23,13 +23,20 @@ export const AquariumForm = () => {
 
 
     return (
-        <Form className="aquariumForm">
-            <h2 className="aquariumForm_title">{aquariumId ? "Update Aquarium" : "Add Aquarium"}</h2>
+        <Container>
+            <Form className="aquariumForm" onSubmit={evt => {
+                evt.preventDefault()
+            }}>
+                <h2 className="aquariumForm_title">{aquariumId ? "Edit Aquarium" : "Add Aquarium"}</h2>
 
-            <Form.Field>
-                <label>Aquarium Name</label>
-                <input placeholder="e.g. Living Room Reef" />
-            </Form.Field>
-        </Form>
+                <Form.Field>
+                    <label>Aquarium Name</label>
+                    <input required placeholder="e.g. Living Room Reef" />
+
+                    <label>Tank Size (gal)</label>
+                    <input required type="number" placeholder="e.g. 150" />
+                </Form.Field>
+            </Form>
+        </Container>
     )
 }
