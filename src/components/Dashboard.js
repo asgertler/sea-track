@@ -13,7 +13,8 @@ export const Dashboard = () => (
                 if (localStorage.getItem("seaTrack_user")) {
                     return (
                         <>
-                            <h2>This is the home page</h2>
+                            <NavBar />
+                            <ApplicationViews />
                         </>
                     )
                 } else {
