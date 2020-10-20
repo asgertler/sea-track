@@ -5,7 +5,7 @@ import { Container, Form } from "semantic-ui-react"
 import "./Aquarium.css"
 
 export const AquariumForm = () => {
-    const { addAquarium, getAquariumById, editAquarium } = useContext(AquariumContext)
+    const { getAquariums, addAquarium, getAquariumById, editAquarium } = useContext(AquariumContext)
 
     const [aquarium, setAquarium] = useState({})
     const [isLoading, setIsLoading] = useState(true)
@@ -19,6 +19,10 @@ export const AquariumForm = () => {
         newAquarium[evt.target.name] = evt.target.value
         setAquarium(newAquarium)
     }
+
+    useEffect(() => {
+        getAquariums()
+    }, [])
 
     const constructNewAquarium = () => {
         addAquarium({
@@ -36,7 +40,7 @@ export const AquariumForm = () => {
             }}>
                 <h2 className="aquariumForm_title">{aquariumId ? "Edit Aquarium" : "Add Aquarium"}</h2>
 
-                <Form.Field>
+                <Form.Field className="aquariumInputs">
                     <label>Aquarium Name</label>
                     <Form.Input
                         required
@@ -57,7 +61,7 @@ export const AquariumForm = () => {
                         onChange={handleControlledInputChange}
                     />
 
-                    <Form.Button primary className="button--submit" type="submit">
+                    <Form.Button primary className="button__submit" type="submit">
                         Save
                     </Form.Button>
                 </Form.Field>

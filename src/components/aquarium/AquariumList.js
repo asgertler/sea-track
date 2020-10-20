@@ -21,7 +21,11 @@ export const AquariumList = () => {
     return (
         <>
             <div className="userAquariums">
-                <AquariumCard key={userAquariums.id} aquarium={userAquariums} />
+                {
+                    userAquariums.map(aquariums => {
+                        return <AquariumCard key={aquariums.id} aquarium={aquariums} />
+                    })
+                }
             </div>
 
             <Button inverted circular basic icon className="addAquarium"
