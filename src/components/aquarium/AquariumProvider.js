@@ -7,7 +7,7 @@ export const AquariumProvider = (props) => {
 
     const getAquariums = () => {
         return fetch("http://localhost:8088/aquariums?_expand=user")
-            .then(res => res.json)
+            .then(res => res.json())
             .then(setAquariums)
     }
 
@@ -38,9 +38,14 @@ export const AquariumProvider = (props) => {
         })
     }
 
+    const getAquariumById = id => {
+        return fetch(`http://localhost:8088/aquariums/${id}`)
+            .then(res => res.json())
+    }
+
     return (
         <AquariumContext.Provider value={{
-            aquariums, getAquariums, addAquarium, editAquarium, deleteAquarium
+            aquariums, getAquariums, addAquarium, editAquarium, deleteAquarium, getAquariumById
         }}>
             {props.children}
         </AquariumContext.Provider>
