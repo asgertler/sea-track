@@ -4,9 +4,16 @@
     justify-content: flex-start;
     align-items: center;
     background-color: #161A66;
-    padding: 10px;
+}
+
+.navbar__logo__container {
+    background-color: #51FF9B;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .navbar__logo {
-    margin-bottom: 25px;
+    width: 60px;
+    margin: 10px;
 }

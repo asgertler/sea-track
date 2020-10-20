@@ -1,7 +1,12 @@
-.addAquarium {
-    margin-bottom: 25px !important;
+.aquarium__card img {
+    width: 65px;
+    opacity: .75;
 }
 
-.aquarium__card img {
-    width: 75px;
+.aquarium__card img:hover {
+    opacity: 1;
+}
+
+.addAquarium {
+    margin-top: 25px !important;
 }

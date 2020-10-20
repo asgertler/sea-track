@@ -17,13 +17,13 @@ export const AquariumList = () => {
 
     return (
         <>
-            <Button inverted circular basic icon className="addAquarium">
-                <Icon name="plus" />
-            </Button>
-
             <div className="userAquariums">
                 <AquariumCard key={userAquariums.id} aquarium={userAquariums} />
             </div>
+
+            <Button inverted circular basic icon className="addAquarium">
+                <Icon name="plus" />
+            </Button>
         </>
     )
 }
