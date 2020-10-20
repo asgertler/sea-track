@@ -27,7 +27,7 @@ export const AquariumProvider = (props) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(animal)
+            body: JSON.stringify(obj)
         })
             .then(getAquariums)
     }
