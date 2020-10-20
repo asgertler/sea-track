@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: flex-start;
+    justify-content: left;
 }
 
 .navbar__item {

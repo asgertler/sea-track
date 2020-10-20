@@ -10,7 +10,9 @@ export const NavBar = (props) => {
                     <Link className="navbar__link" to="/">Sea Track</Link>
                 </li>
 
-                <li className="navbar__link" to="/aquarium">Aquarium</li>
+                <li className="navbar__item">
+                    <Link className="navbar__link" to="/aquarium">Aquarium</Link>
+                </li>
             </ul>
         </>
     )
