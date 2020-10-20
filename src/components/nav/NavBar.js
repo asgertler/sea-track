@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { AquariumContext } from "../aquarium/AquariumProvider"
+import { AquariumProvider } from "../aquarium/AquariumProvider"
+import { AquariumList } from "../aquarium/AquariumList"
 import "./NavBar.css"
 
 export const NavBar = (props) => {
@@ -13,11 +14,11 @@ export const NavBar = (props) => {
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/">Sea Track</Link>
                 </li>
-
-                <li className="navbar__item">
-                    <Link className="navbar__link" to="/aquarium">Aquarium</Link>
-                </li>
             </ul>
+
+            <AquariumProvider>
+                <AquariumList />
+            </AquariumProvider>
         </>
     )
 }

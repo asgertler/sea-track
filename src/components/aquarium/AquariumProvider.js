@@ -3,7 +3,7 @@ import React, { useState, createContext } from "react"
 export const AquariumContext = createContext()
 
 export const AquariumProvider = (props) => {
-    const [aquariums, setAquariums] = useState()
+    const [aquariums, setAquariums] = useState([])
 
     const getAquariums = () => {
         return fetch("http://localhost:8088/aquariums?_expand=user")
