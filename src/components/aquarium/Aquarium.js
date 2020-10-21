@@ -14,6 +14,7 @@ export const Aquarium = () => {
     const history = useHistory()
 
     useEffect(() => {
+        console.log("ran")
         getAquariumById(aquariumId)
             .then((res) => {
                 setAquarium(res)
