@@ -24,6 +24,7 @@ export const Aquarium = () => {
         <Container>
             <section className="aquarium">
                 <h3 className="aquarium__name">{aquarium.name}</h3>
+                <p className="aquarium__size">{aquarium.gal}</p>
             </section>
         </Container>
     )

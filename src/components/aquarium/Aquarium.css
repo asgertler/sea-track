@@ -1,6 +1,7 @@
 .aquarium__card img {
-    width: 65px;
+    width: 60px;
     opacity: .75;
+    margin-bottom: 10px;
 }
 
 .aquarium__card img:hover {
@@ -8,5 +9,5 @@
 }
 
 .addAquarium {
-    margin-top: 25px !important;
+    margin-top: 15px !important;
 }
