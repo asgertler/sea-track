@@ -30,6 +30,7 @@ export const AquariumForm = () => {
             name: aquarium.name,
             gal: aquarium.size
         })
+            .then(history.push("/"))
     }
 
     return (
