@@ -4,7 +4,7 @@ import { AquariumContext } from "./AquariumProvider"
 import { Container } from "semantic-ui-react"
 import "./Aquarium.css"
 
-export const Aquarium = () => {
+export const Aquarium = (props) => {
     const { getAquariumById } = useContext(AquariumContext)
 
     const [aquarium, setAquarium] = useState({})
@@ -13,13 +13,15 @@ export const Aquarium = () => {
 
     const history = useHistory()
 
+    console.log("test", aquarium)
+
     useEffect(() => {
         console.log("ran")
         getAquariumById(aquariumId)
             .then((res) => {
                 setAquarium(res)
             })
-    }, [])
+    }, [aquariumId])
 
     return (
         <Container>

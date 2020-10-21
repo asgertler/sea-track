@@ -9,7 +9,8 @@
 .navbar__logo__container {
     background-color: #51FF9B;
     text-align: center;
-    width: 100%;
+    width: 80px;
+    height: 80px;
     margin-bottom: 10px;
 }
 
