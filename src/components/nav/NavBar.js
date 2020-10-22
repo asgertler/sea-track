@@ -1,17 +1,19 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { AquariumList } from "../aquarium/AquariumList"
+import logo from "../../img/seaTrack_icon_wht.png"
 import "./NavBar.css"
 
 export const NavBar = (props) => {
     return (
         <>
-            <ul className="navbar">
-                <li className="navbar__item active">
-                    <Link className="navbar__link" to="/">Sea Track</Link>
-                </li>
+            <section className="navbar">
+                <Link className="navbar__logo__container" to="/">
+                    <img src={logo} alt="seaTrack Icon" className="navbar__logo" />
+                </Link>
 
-                <li className="navbar__link" to="/aquarium">Aquarium</li>
-            </ul>
+                <AquariumList />
+            </section>
         </>
     )
 }

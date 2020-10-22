@@ -4,6 +4,7 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { AquariumProvider } from "./aquarium/AquariumProvider"
 import "./Dashboard.css"
 
 export const Dashboard = () => (
@@ -13,7 +14,12 @@ export const Dashboard = () => (
                 if (localStorage.getItem("seaTrack_user")) {
                     return (
                         <>
-                            <h2>This is the home page</h2>
+                            <div className="dashboardView">
+                                <AquariumProvider>
+                                    <NavBar />
+                                    <ApplicationViews />
+                                </AquariumProvider>
+                            </div>
                         </>
                     )
                 } else {
@@ -22,13 +28,12 @@ export const Dashboard = () => (
             }}
         />
 
-        <Route path="/login">
+        <Route exact path="/login">
             <Login />
         </Route>
 
-        <Route path="/register">
+        <Route exact path="/register">
             <Register />
         </Route>
-
     </>
 )
