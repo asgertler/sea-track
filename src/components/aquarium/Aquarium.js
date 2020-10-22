@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { AquariumContext } from "./AquariumProvider"
 import { Button, Container, Icon } from "semantic-ui-react"
+import { FishList } from "../fish/FishList"
 import "./Aquarium.css"
 
 export const Aquarium = (props) => {
@@ -23,8 +24,12 @@ export const Aquarium = (props) => {
     return (
         <Container>
             <section className="aquarium">
-                <h3 className="aquarium__name">{aquarium.name}</h3>
+                <h2 className="aquarium__name">{aquarium.name}</h2>
                 <p className="aquarium__size">{aquarium.gal}</p>
+
+                <section className="aquarium__fish">
+
+                </section>
 
                 <Button icon circular onClick={() => {
                     history.push(`/aquarium/edit/${aquarium.id}`)
