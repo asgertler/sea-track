@@ -159,6 +159,10 @@ export const FishForm = () => {
                             defaultValue={fish.birthday} onChange={handleControlledInputChange} />
                     </div>
                 </Form.Group>
+
+                <Form.Button primary className="button__submit" type="submit" disabled={isLoading}>
+                    Save
+                </Form.Button>
             </Form>
         </Container >
     )
