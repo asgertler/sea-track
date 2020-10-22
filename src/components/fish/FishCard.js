@@ -1,16 +1,14 @@
-import React, { useContext, useEffect, useState } from "react"
-import { useParams, useHistory } from "react-router-dom"
+import React, { useContext } from "react"
+import { useHistory } from "react-router-dom"
 import { FishContext } from "./FishProvider"
 import { Button, Container, Icon, Modal } from "semantic-ui-react"
 import { FishForm } from "./FishForm"
 import "./Fish.css"
 
 export const FishCard = ({ fish }) => {
-    const { getFishById, deleteFish } = useContext(FishContext)
+    const { deleteFish } = useContext(FishContext)
 
     const [open, setOpen] = React.useState(false)
-
-    const { fishId } = useParams()
 
     const history = useHistory()
 
@@ -32,13 +30,25 @@ export const FishCard = ({ fish }) => {
             <p className="fish__diest"><strong>Diet: </strong>{fish.diet}</p>
             <p className="fish__pH"><strong>pH Range: </strong>{fish.pHLow} - {fish.pHHigh}</p>
 
+            <Modal
+                onClose={() => setOpen(false)}
+                onOpen={() => setOpen(true)}
+                open={open}
+                size="small"
+                trigger={
+                    <Button icon circular>
+                        <Icon name="edit" />
+                    </Button>
+                }>
+                <FishForm />
+            </Modal>
+
             <Button icon circular onClick={() => {
                 deleteFish(fish.id)
                     .then(() => {
                         history.push(`/aquarium/details/${fish.aquariumId}`)
                     })
-            }
-            }>
+            }}>
                 <Icon name="delete" />
             </Button>
         </Container>

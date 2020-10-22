@@ -41,7 +41,6 @@ export const FishForm = () => {
 
         if (fishId) {
             editFish({
-                id: fish.id,
                 aquariumId: fish.aquariumId,
                 name: fish.name,
                 type: fish.type,
@@ -100,9 +99,7 @@ export const FishForm = () => {
                         onChange={handleControlledInputChange}
                         width={6}
                     />
-                </Form.Group>
 
-                <Form.Group>
                     <Form.Input
                         required
                         label="Max Length (in)"
@@ -113,7 +110,9 @@ export const FishForm = () => {
                         onChange={handleControlledInputChange}
                         width={3}
                     />
+                </Form.Group>
 
+                <Form.Group>
                     <Form.Field
                         required
                         label="Diet"
@@ -140,7 +139,7 @@ export const FishForm = () => {
                         name="pHLow"
                         defaultValue={fish.pHLow}
                         onChange={handleControlledInputChange}
-                        width={2}
+                        width={3}
                     />
 
                     <Form.Input
@@ -153,7 +152,7 @@ export const FishForm = () => {
                         name="pHHigh"
                         defaultValue={fish.pHHigh}
                         onChange={handleControlledInputChange}
-                        width={2}
+                        width={3}
                     />
 
                     <div className="birthdayGroup">
@@ -168,6 +167,6 @@ export const FishForm = () => {
                     Save
                 </Form.Button>
             </Form>
-        </Container >
+        </Container>
     )
 }
