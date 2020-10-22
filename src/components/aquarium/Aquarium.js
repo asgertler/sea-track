@@ -28,7 +28,7 @@ export const Aquarium = (props) => {
                 <p className="aquarium__size">{aquarium.gal}</p>
 
                 <section className="aquarium__fish">
-
+                    <FishList />
                 </section>
 
                 <Button icon circular onClick={() => {
