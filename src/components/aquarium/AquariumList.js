@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { useHistory } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import { AquariumContext } from "./AquariumProvider"
 import { AquariumCard } from "./AquariumCard"
 import { Button, Icon } from "semantic-ui-react"
@@ -10,9 +10,11 @@ export const AquariumList = () => {
 
     const currentUser = parseInt(localStorage.getItem("seaTrack_user"))
 
+    const { aquariumId } = useParams()
+
     useEffect(() => {
         getAquariums()
-    }, [])
+    }, [aquariumId])
 
     const history = useHistory()
 

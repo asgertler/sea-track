@@ -19,6 +19,7 @@ export const AquariumProvider = (props) => {
             },
             body: JSON.stringify(obj)
         })
+            .then(getAquariums)
     }
 
     const editAquarium = obj => {
@@ -32,10 +33,11 @@ export const AquariumProvider = (props) => {
             .then(getAquariums)
     }
 
-    const deleteAquarium = obj => {
-        return fetch(`http://localhost:8088/aquariums/${obj.id}`, {
+    const deleteAquarium = id => {
+        return fetch(`http://localhost:8088/aquariums/${id}`, {
             method: "DELETE"
         })
+            .then(getAquariums)
     }
 
     const getAquariumById = id => {
