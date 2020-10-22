@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom"
 import { AquariumContext } from "./AquariumProvider"
 import { Button, Container, Icon, Modal } from "semantic-ui-react"
 import { FishList } from "../fish/FishList"
+import { FishForm } from "../fish/FishForm"
 import "./Aquarium.css"
 
 export const Aquarium = (props) => {
@@ -57,7 +58,9 @@ export const Aquarium = (props) => {
                                 <Icon name="plus" /> Fish
                             </Button>
                         }
-                    ></Modal>
+                    >
+                        <FishForm />
+                    </Modal>
 
                     <FishList />
                 </section>
