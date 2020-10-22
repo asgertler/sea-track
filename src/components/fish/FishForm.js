@@ -48,8 +48,8 @@ export const FishForm = () => {
                 length: parseInt(fish.length),
                 birthday: fish.birthday,
                 diet: fish.diet,
-                pHHigh: parseInt(fish.pHHigh),
-                pHLow: parseInt(fish.pHLow)
+                pHHigh: fish.pHHigh,
+                pHLow: fish.pHLow
             })
                 .then(() => history.push(`/aquarium/details/${fish.aquariumId}`))
 
@@ -62,8 +62,8 @@ export const FishForm = () => {
                 length: parseInt(fish.length),
                 birthday: fish.birthday,
                 diet: fish.diet,
-                pHHigh: parseInt(fish.pHHigh),
-                pHLow: parseInt(fish.pHLow)
+                pHHigh: fish.pHHigh,
+                pHLow: fish.pHLow
             })
                 .then(history.push((`/aquarium/details/${aquariumId}`)))
         }
@@ -132,6 +132,8 @@ export const FishForm = () => {
 
                     <Form.Input
                         required
+                        type="number"
+                        step="0.1"
                         label="Min pH"
                         placeholder="e.g. 8.1"
                         id="fishpHLow"
@@ -143,6 +145,8 @@ export const FishForm = () => {
 
                     <Form.Input
                         required
+                        type="number"
+                        step="0.1"
                         label="Max pH"
                         placeholder="e.g. 8.4"
                         id="fishpHHigh"
