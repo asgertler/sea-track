@@ -18,6 +18,10 @@ export const ApplicationViews = (props) => {
             <Route exact path="/aquarium/form">
                 <AquariumForm />
             </Route>
+
+            <Route exact path="/aquarium/edit/:aquariumId(\d+)">
+                <AquariumForm />
+            </Route>
         </>
     )
 }

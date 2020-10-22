@@ -21,16 +21,38 @@ export const AquariumForm = () => {
     }
 
     useEffect(() => {
-        getAquariums()
+        getAquariums().then(() => {
+            if (aquariumId) {
+                getAquariumById(aquariumId)
+                    .then(aquarium => {
+                        setAquarium(aquarium)
+                        setIsLoading(false)
+                    })
+            } else {
+                setIsLoading(false)
+            }
+        })
     }, [])
 
     const constructNewAquarium = () => {
-        addAquarium({
-            userId: parseInt(localStorage.getItem("seaTrack_user")),
-            name: aquarium.name,
-            gal: aquarium.size
-        })
-            .then(history.push("/"))
+        setIsLoading(true)
+
+        if (aquariumId) {
+            editAquarium({
+                id: aquarium.id,
+                name: aquarium.name,
+                gal: parseInt(aquarium.size)
+            })
+                .then(() => history.push(`/aquarium/details/${aquarium.id}`))
+
+        } else {
+            addAquarium({
+                userId: parseInt(localStorage.getItem("seaTrack_user")),
+                name: aquarium.name,
+                gal: parseInt(aquarium.size)
+            })
+                .then(history.push("/"))
+        }
     }
 
     return (
@@ -49,6 +71,7 @@ export const AquariumForm = () => {
                         placeholder="e.g. Living Room Reef"
                         id="aquariumName"
                         name="name"
+                        defaultValue={aquarium.name}
                         onChange={handleControlledInputChange}
                     />
 
@@ -59,10 +82,11 @@ export const AquariumForm = () => {
                         placeholder="e.g. 150"
                         id="aquariumSize"
                         name="size"
+                        defaultValue={aquarium.gal}
                         onChange={handleControlledInputChange}
                     />
 
-                    <Form.Button primary className="button__submit" type="submit">
+                    <Form.Button primary className="button__submit" type="submit" disabled={isLoading}>
                         Save
                     </Form.Button>
                 </Form.Field>

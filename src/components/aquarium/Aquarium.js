@@ -26,6 +26,12 @@ export const Aquarium = (props) => {
                 <h3 className="aquarium__name">{aquarium.name}</h3>
                 <p className="aquarium__size">{aquarium.gal}</p>
 
+                <Button icon circular onClick={() => {
+                    history.push(`/aquarium/edit/${aquarium.id}`)
+                }}>
+                    <Icon name="edit" />
+                </Button>
+
                 <Button icon circular onClick={
                     () => {
                         deleteAquarium(aquarium.id)
