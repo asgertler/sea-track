@@ -34,13 +34,12 @@ export const Aquarium = (props) => {
                     <Icon name="edit" />
                 </Button>
 
-                <Button icon circular onClick={
-                    () => {
-                        deleteAquarium(aquarium.id)
-                            .then(() => {
-                                history.push("/")
-                            })
-                    }
+                <Button icon circular onClick={() => {
+                    deleteAquarium(aquarium.id)
+                        .then(() => {
+                            history.push("/")
+                        })
+                }
                 }>
                     <Icon name="delete" />
                 </Button>
