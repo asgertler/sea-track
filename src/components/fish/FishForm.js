@@ -87,6 +87,7 @@ export const FishForm = () => {
                         defaultValue={fish.name}
                         onChange={handleControlledInputChange}
                         width={6}
+                        autoFocus
                     />
 
                     <Form.Input
@@ -99,7 +100,9 @@ export const FishForm = () => {
                         onChange={handleControlledInputChange}
                         width={6}
                     />
+                </Form.Group>
 
+                <Form.Group>
                     <Form.Input
                         required
                         label="Max Length (in)"
@@ -110,12 +113,6 @@ export const FishForm = () => {
                         onChange={handleControlledInputChange}
                         width={3}
                     />
-                </Form.Group>
-
-                <Form.Group>
-                    <label>Birthday</label>
-                    <input type="date" required id="fishBirthday" name="birthday"
-                        defaultValue={fish.birthday} onChange={handleControlledInputChange} />
 
                     <Form.Field
                         required
@@ -132,31 +129,37 @@ export const FishForm = () => {
                         <option value="Frozen">Frozen</option>
                         <option value="Live">Live</option>
                     </Form.Field>
+
+                    <Form.Input
+                        required
+                        label="Min pH"
+                        placeholder="e.g. 8.1"
+                        id="fishpHLow"
+                        name="pHLow"
+                        defaultValue={fish.pHLow}
+                        onChange={handleControlledInputChange}
+                        width={2}
+                    />
+
+                    <Form.Input
+                        required
+                        label="Max pH"
+                        placeholder="e.g. 8.4"
+                        id="fishpHHigh"
+                        name="pHHigh"
+                        defaultValue={fish.pHHigh}
+                        onChange={handleControlledInputChange}
+                        width={2}
+                    />
+
+                    <div className="birthdayGroup">
+                        <label id="birthdayLabel"><strong>Birthday</strong></label><br />
+
+                        <input type="date" required id="fishBirthday" name="birthday"
+                            defaultValue={fish.birthday} onChange={handleControlledInputChange} />
+                    </div>
                 </Form.Group>
             </Form>
         </Container >
     )
 }
-
-/*
-
-<Form.Field className="fishInputs">
-
-
-                    <Form.Select
-                        required
-                        label="Diet"
-                        placeholder="What type of food do they eat?"
-                        id="fishDiet"
-                        name="diet"
-                        defaultValue={fish.diet}
-                        onChange={handleControlledInputChange}
-                    >
-                        <option value="Pellets">Pellets</option>
-                        <option value="Frozen">Frozen</option>
-                        <option value="Live">Live</option>
-                    </Form.Select>
-                </Form.Field>
-            </Form>
-
-            */
