@@ -118,12 +118,12 @@ export const FishForm = () => {
                         required
                         label="Diet"
                         control="select"
-                        placeholder="e.g. Algae"
                         id="fishDiet"
                         name="diet"
                         defaultValue={fish.diet}
                         onChange={handleControlledInputChange}
                     >
+                        <option value="0" disabled selected>Choose a food...</option>
                         <option value="Algae">Algae</option>
                         <option value="Pellets">Pellets</option>
                         <option value="Frozen">Frozen</option>
