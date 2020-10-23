@@ -12,6 +12,8 @@ export const Aquarium = (props) => {
     const [aquarium, setAquarium] = useState({})
     const [open, setOpen] = React.useState(false)
 
+    const [fishState, setFishState] = useState()
+
     const { aquariumId } = useParams()
 
     const history = useHistory()

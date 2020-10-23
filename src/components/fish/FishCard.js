@@ -9,6 +9,7 @@ export const FishCard = ({ fish }) => {
     const { deleteFish } = useContext(FishContext)
 
     const [open, setOpen] = React.useState(false)
+    const [currentFish, setCurrentFish] = React.useState()
 
     const history = useHistory()
 
@@ -22,7 +23,7 @@ export const FishCard = ({ fish }) => {
     const years = Math.floor((((millisecAge / 1000) / 3600) / 24) / 365)
 
     return (
-        <Container className="fish__card">
+        <Container className="fish__card" id={fish.id}>
             <h4 className="fish__name">{fish.name}</h4>
             <p className="fish__type"><strong>Type: </strong>{fish.type}</p>
             <p className="fish__age"><strong>Age: </strong>{years} years, {months} months</p>
@@ -36,12 +37,12 @@ export const FishCard = ({ fish }) => {
                 open={open}
                 size="small"
                 trigger={
-                    <Button icon circular>
+                    <Button icon circular onClick={() => setCurrentFish(fish.id)}>
                         <Icon name="edit" />
                     </Button>
                 }>
                 <FishForm />
-            </Modal>
+            </Modal >
 
             <Button icon circular onClick={() => {
                 deleteFish(fish.id)
@@ -51,6 +52,6 @@ export const FishCard = ({ fish }) => {
             }}>
                 <Icon name="delete" />
             </Button>
-        </Container>
+        </Container >
     )
 }
