@@ -1,3 +1,7 @@
+.fishFormContainer {
+    padding: 25px !important;
+}
+
 #fishBirthday {
     height: 38px;
 }

@@ -69,7 +69,7 @@ export const FishForm = () => {
     }
 
     return (
-        <Container>
+        <Container className="fishFormContainer">
             <Form className="fishForm" onSubmit={evt => {
                 evt.preventDefault()
                 constructNewFish()
@@ -113,21 +113,20 @@ export const FishForm = () => {
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Field
+                    <Form.Input
                         required
                         label="Diet"
-                        control="select"
-                        id="fishDiet"
-                        name="diet"
-                        defaultValue={fish.diet}
-                        onChange={handleControlledInputChange}
                     >
-                        <option value="0" disabled selected>Choose a food...</option>
-                        <option value="Algae">Algae</option>
-                        <option value="Pellets">Pellets</option>
-                        <option value="Frozen">Frozen</option>
-                        <option value="Live">Live</option>
-                    </Form.Field>
+                        <select name="diet" id="fishDiet" defaultValue={fishId ? fish.diet : ""}
+                            onChange={handleControlledInputChange} required>
+                            <option value="" disabled>Choose a food...</option>
+                            <option value="Algae">Algae</option>
+                            <option value="Pellets">Pellets</option>
+                            <option value="Frozen">Frozen</option>
+                            <option value="Live">Live</option>
+                        </select>
+                    </Form.Input>
+
 
                     <Form.Input
                         required
