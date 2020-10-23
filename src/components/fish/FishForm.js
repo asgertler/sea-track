@@ -155,12 +155,13 @@ export const FishForm = () => {
                         width={3}
                     />
 
-                    <div className="birthdayGroup">
-                        <label id="birthdayLabel"><strong>Birthday</strong></label><br />
-
+                    <Form.Input
+                        required
+                        label="Birthday"
+                    >
                         <input type="date" required id="fishBirthday" name="birthday"
                             defaultValue={fish.birthday} onChange={handleControlledInputChange} />
-                    </div>
+                    </Form.Input>
                 </Form.Group>
 
                 <Form.Button primary className="button__submit" type="submit" disabled={isLoading}>
