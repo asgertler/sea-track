@@ -11,3 +11,9 @@
 .addAquarium {
     margin-top: 15px !important;
 }
+
+.aquarium__header {
+    display: flex;
+    flex-flow: row norwap;
+    justify-content: space-between;
+}

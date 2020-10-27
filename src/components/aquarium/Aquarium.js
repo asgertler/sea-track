@@ -28,25 +28,27 @@ export const Aquarium = (props) => {
     return (
         <Container>
             <section className="aquarium">
-                <h2 className="aquarium__name">{aquarium.name}</h2>
+                <div className="aquarium__header">
+                    <h2 className="aquarium__name"><strong>{aquarium.name}</strong> / {aquarium.gal} gal</h2>
 
-                <Button icon circular onClick={() => {
-                    history.push(`/aquarium/edit/${aquarium.id}`)
-                }}>
-                    <Icon name="edit" />
-                </Button>
+                    <div className="aquarium__buttons">
+                        <Button icon circular onClick={() => {
+                            history.push(`/aquarium/edit/${aquarium.id}`)
+                        }}>
+                            <Icon name="edit" />
+                        </Button>
 
-                <Button icon circular onClick={() => {
-                    deleteAquarium(aquarium.id)
-                        .then(() => {
-                            history.push("/")
-                        })
-                }
-                }>
-                    <Icon name="delete" />
-                </Button>
-
-                <p className="aquarium__size">{aquarium.gal}</p>
+                        <Button icon circular style={{ marginLeft: "5px" }} onClick={() => {
+                            deleteAquarium(aquarium.id)
+                                .then(() => {
+                                    history.push("/")
+                                })
+                        }
+                        }>
+                            <Icon name="delete" />
+                        </Button>
+                    </div>
+                </div>
 
                 <section className="aquarium__fish">
                     <Modal
