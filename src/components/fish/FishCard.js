@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { FishContext } from "./FishProvider"
 import { Button, Container, Icon, Modal } from "semantic-ui-react"
@@ -8,8 +8,7 @@ import "./Fish.css"
 export const FishCard = ({ fish }) => {
     const { deleteFish } = useContext(FishContext)
 
-    const [open, setOpen] = React.useState(false)
-    const [currentFish, setCurrentFish] = React.useState()
+    const [open, setOpen] = useState(false)
 
     const history = useHistory()
 
@@ -37,7 +36,7 @@ export const FishCard = ({ fish }) => {
                 open={open}
                 size="small"
                 trigger={
-                    <Button icon circular onClick={() => setCurrentFish(fish.id)}>
+                    <Button icon circular>
                         <Icon name="edit" />
                     </Button>
                 }>
