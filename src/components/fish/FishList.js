@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { FishContext } from "./FishProvider"
 import { FishCard } from "./FishCard"
-import { Button, Container, Icon } from "semantic-ui-react"
+import { Container } from "semantic-ui-react"
 import "./Fish.css"
 
 export const FishList = () => {
@@ -17,8 +17,6 @@ export const FishList = () => {
     }, [fishId])
 
     const aquariumFish = fish.filter(fish => fish.aquariumId === aquariumId)
-
-    const history = useHistory()
 
     return (
         <>

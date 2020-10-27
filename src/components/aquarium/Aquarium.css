@@ -12,6 +12,11 @@
     margin-top: 15px !important;
 }
 
+.aquarium {
+    border: 1px solid black;
+    padding: 25px;
+}
+
 .aquarium__header {
     display: flex;
     flex-flow: row norwap;
