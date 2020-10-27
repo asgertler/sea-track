@@ -64,9 +64,9 @@ export const AquariumForm = () => {
                 <h2 className="aquariumForm_title">{aquariumId ? "Edit Aquarium" : "Add Aquarium"}</h2>
 
                 <Form.Field className="aquariumInputs">
-                    <label>Aquarium Name</label>
                     <Form.Input
                         required
+                        label="Aquarium Name"
                         type="text"
                         placeholder="e.g. Living Room Reef"
                         id="aquariumName"
@@ -75,9 +75,9 @@ export const AquariumForm = () => {
                         onChange={handleControlledInputChange}
                     />
 
-                    <label>Tank Size (gal)</label>
                     <Form.Input
                         required
+                        label="Tank Size (gal)"
                         type="number"
                         placeholder="e.g. 150"
                         id="aquariumSize"
