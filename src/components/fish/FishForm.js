@@ -10,8 +10,6 @@ export const FishForm = props => {
     const [fish, setFish] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
-    const { fishId } = useParams()
-
     const aquariumId = parseInt(window.location.pathname.split("/").pop())
 
     const handleControlledInputChange = (evt) => {
@@ -41,6 +39,7 @@ export const FishForm = props => {
 
         if (props.fishId) {
             editFish({
+                id: props.fishId,
                 aquariumId: fish.aquariumId,
                 name: fish.name,
                 type: fish.type,
@@ -74,7 +73,7 @@ export const FishForm = props => {
                 evt.preventDefault()
                 constructNewFish()
             }}>
-                <h3 className="fishForm_title">{fishId ? "Edit Fish" : "Add Fish"}</h3>
+                <h3 className="fishForm_title">{props.fishId ? "Edit Fish" : "Add Fish"}</h3>
 
                 <Form.Group>
                     <Form.Input
@@ -117,7 +116,7 @@ export const FishForm = props => {
                         required
                         label="Diet"
                     >
-                        <select name="diet" id="fishDiet" defaultValue={props.fishId ? fish.diet : ""}
+                        <select name="diet" id="fishDiet" value={fish.diet} defaultValue={""}
                             onChange={handleControlledInputChange} required>
                             <option value="" disabled>Choose a food...</option>
                             <option value="Algae">Algae</option>
