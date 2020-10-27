@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { AquariumHistoryContext } from "./AquariumHistoryProvider"
 import { AquariumHistoryCard } from "./AquariumHistoryCard"
 import { AquariumHistoryForm } from "./AquariumHistoryForm"
-import { Container } from "semantic-ui-react"
+import { Card, Container } from "semantic-ui-react"
 import "./AquariumHistory.css"
 
 export const AquariumHistoryList = () => {
@@ -23,13 +23,17 @@ export const AquariumHistoryList = () => {
     return (
         <>
             <Container className="aquariumHistory">
+                <h3>Log Water Change</h3>
                 <AquariumHistoryForm />
 
-                {
-                    reversedAquariumHistory.map(aquariumHistory => {
-                        return <AquariumHistoryCard key={aquariumHistory.id} aquariumHistory={aquariumHistory} />
-                    })
-                }
+                <h3>Water Quality History</h3>
+                <Card.Group>
+                    {
+                        reversedAquariumHistory.map(aquariumHistory => {
+                            return <AquariumHistoryCard key={aquariumHistory.id} aquariumHistory={aquariumHistory} />
+                        })
+                    }
+                </Card.Group>
             </Container>
         </>
     )

@@ -58,7 +58,7 @@ export const Aquarium = (props) => {
                         open={open}
                         size="small"
                         trigger={
-                            <Button circular>
+                            <Button>
                                 <Icon name="plus" /> Fish
                             </Button>
                         }

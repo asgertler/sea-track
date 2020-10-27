@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { FishContext } from "./FishProvider"
 import { FishCard } from "./FishCard"
-import { Container } from "semantic-ui-react"
+import { Card } from "semantic-ui-react"
 import "./Fish.css"
 
 export const FishList = () => {
@@ -20,13 +20,13 @@ export const FishList = () => {
 
     return (
         <>
-            <Container className="aquariumFish">
+            <Card.Group className="aquariumFish">
                 {
                     aquariumFish.map(fish => {
                         return <FishCard key={fish.id} fish={fish} />
                     })
                 }
-            </Container>
+            </Card.Group>
         </>
     )
 }
