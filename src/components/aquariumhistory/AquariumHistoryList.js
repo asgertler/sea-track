@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { AquariumHistoryContext } from "./AquariumHistoryProvider"
 import { AquariumHistoryCard } from "./AquariumHistoryCard"
+import { AquariumHistoryForm } from "./AquariumHistoryForm"
 import { Container } from "semantic-ui-react"
 import "./AquariumHistory.css"
 
@@ -17,12 +18,15 @@ export const AquariumHistoryList = () => {
     }, [aquariumHistoryId])
 
     const currentAquariumHistory = aquariumHistory.filter(obj => obj.aquariumId === aquariumId)
+    const reversedAquariumHistory = currentAquariumHistory.reverse()
 
     return (
         <>
             <Container className="aquariumHistory">
+                <AquariumHistoryForm />
+
                 {
-                    currentAquariumHistory.map(aquariumHistory => {
+                    reversedAquariumHistory.map(aquariumHistory => {
                         return <AquariumHistoryCard key={aquariumHistory.id} aquariumHistory={aquariumHistory} />
                     })
                 }
