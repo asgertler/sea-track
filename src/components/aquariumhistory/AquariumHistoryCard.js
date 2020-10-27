@@ -16,7 +16,11 @@ export const AquariumHistoryCard = ({ aquariumHistory }) => {
 
     return (
         <Container className="aquariumHistory__card" id={aquariumHistory.id}>
-            Aquarium history info goes here.
+            <h4 className="aquariumHistory__title">Water Quality History</h4>
+            <p><strong>pH: </strong>{aquariumHistory.pH}</p>
+            <p><strong>Ammonia: </strong>{aquariumHistory.ammonia}</p>
+            <p><strong>Nitrite: </strong>{aquariumHistory.nitrite}</p>
+            <p><strong>Nitrate: </strong>{aquariumHistory.nitrate}</p>
         </Container>
     )
 }
