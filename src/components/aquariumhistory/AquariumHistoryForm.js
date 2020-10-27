@@ -41,7 +41,7 @@ export const AquariumHistoryForm = props => {
             ammonia: aquariumHistory.ammonia,
             nitrite: aquariumHistory.nitrite,
             nitrate: aquariumHistory.nitrate,
-            testDate: aquariumHistory.testDate
+            testDate: new Date().toISOString().split("T")[0]
         })
     }
 
@@ -66,7 +66,8 @@ export const AquariumHistoryForm = props => {
                     />
 
                     <Form.Input
-                        requiredtype="number"
+                        required
+                        type="number"
                         step="0.01"
                         label="ammonia"
                         placeholder="e.g. .01"
@@ -78,7 +79,8 @@ export const AquariumHistoryForm = props => {
                     />
 
                     <Form.Input
-                        requiredtype="number"
+                        required
+                        type="number"
                         step="0.01"
                         label="nitrite"
                         placeholder="e.g. .04"
@@ -90,7 +92,8 @@ export const AquariumHistoryForm = props => {
                     />
 
                     <Form.Input
-                        requiredtype="number"
+                        required
+                        type="number"
                         step="0.01"
                         label="nitrate"
                         placeholder="e.g. .03"
@@ -100,14 +103,6 @@ export const AquariumHistoryForm = props => {
                         onChange={handleControlledInputChange}
                         width={2}
                     />
-
-                    <Form.Input
-                        required
-                        label="Test Date"
-                    >
-                        <input type="date" required id="testDate" name="testDate"
-                            defaultValue={aquariumHistory.testDate} onChange={handleControlledInputChange} />
-                    </Form.Input>
                 </Form.Group>
 
                 <Form.Button primary className="button__submit" type="submit" disabled={isLoading}>
