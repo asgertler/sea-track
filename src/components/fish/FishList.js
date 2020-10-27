@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { useParams, useHistory } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { FishContext } from "./FishProvider"
 import { FishCard } from "./FishCard"
 import { Container } from "semantic-ui-react"
