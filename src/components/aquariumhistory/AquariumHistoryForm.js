@@ -105,6 +105,26 @@ export const AquariumHistoryForm = props => {
                     />
                 </Form.Group>
 
+                <Form.Group>
+                    <Form.Checkbox
+                        required
+                        label="Vacuum Substrate"
+                        inline
+                    />
+
+                    <Form.Checkbox
+                        required
+                        label="Clean Filters"
+                        inline
+                    />
+
+                    <Form.Checkbox
+                        required
+                        label="Add Conditioner"
+                        inline
+                    />
+                </Form.Group>
+
                 <Form.Button primary className="button__submit" type="submit" disabled={isLoading}>
                     Save
                 </Form.Button>
