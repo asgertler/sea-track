@@ -14,9 +14,15 @@ export const AquariumHistoryCard = ({ aquariumHistory }) => {
 
     const aquariumHistoryId = aquariumHistory.id
 
+    const testDate = aquariumHistory.testDate
+    const [fullYear, month, day] = testDate.split("-")
+    const year = fullYear.substr(-2)
+    const usableDate = month + "." + day + "." + year
+
     return (
         <Container className="aquariumHistory__card" id={aquariumHistory.id}>
-            <h4 className="aquariumHistory__title">Water Quality History</h4>
+            <h3 className="aquariumHistory__title">Water Quality History</h3>
+            <p><strong>Test Date: </strong>{usableDate}</p>
             <p><strong>pH: </strong>{aquariumHistory.pH}</p>
             <p><strong>Ammonia: </strong>{aquariumHistory.ammonia}</p>
             <p><strong>Nitrite: </strong>{aquariumHistory.nitrite}</p>
