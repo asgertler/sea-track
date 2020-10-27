@@ -21,6 +21,8 @@ export const FishCard = ({ fish }) => {
     const months = Math.floor(((((millisecAge / 1000) / 3600) / 24) / 30.436875) % 12)
     const years = Math.floor((((millisecAge / 1000) / 3600) / 24) / 365)
 
+    const fishId = fish.id
+
     return (
         <Container className="fish__card" id={fish.id}>
             <h4 className="fish__name">{fish.name}</h4>
@@ -40,7 +42,7 @@ export const FishCard = ({ fish }) => {
                         <Icon name="edit" />
                     </Button>
                 }>
-                <FishForm />
+                <FishForm fishId={fishId} />
             </Modal >
 
             <Button icon circular onClick={() => {

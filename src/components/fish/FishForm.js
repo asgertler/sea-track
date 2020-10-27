@@ -4,7 +4,7 @@ import { FishContext } from "./FishProvider"
 import { Container, Form } from "semantic-ui-react"
 import "./Fish.css"
 
-export const FishForm = () => {
+export const FishForm = props => {
     const { getFish, addFish, getFishById, editFish } = useContext(FishContext)
 
     const [fish, setFish] = useState({})
@@ -22,8 +22,8 @@ export const FishForm = () => {
 
     useEffect(() => {
         getFish().then(() => {
-            if (fishId) {
-                getFishById(fishId)
+            if (props.fishId) {
+                getFishById(props.fishId)
                     .then(fish => {
                         setFish(fish)
                         setIsLoading(false)
@@ -39,7 +39,7 @@ export const FishForm = () => {
     const constructNewFish = () => {
         setIsLoading(true)
 
-        if (fishId) {
+        if (props.fishId) {
             editFish({
                 aquariumId: fish.aquariumId,
                 name: fish.name,
@@ -117,7 +117,7 @@ export const FishForm = () => {
                         required
                         label="Diet"
                     >
-                        <select name="diet" id="fishDiet" defaultValue={fishId ? fish.diet : ""}
+                        <select name="diet" id="fishDiet" defaultValue={props.fishId ? fish.diet : ""}
                             onChange={handleControlledInputChange} required>
                             <option value="" disabled>Choose a food...</option>
                             <option value="Algae">Algae</option>
