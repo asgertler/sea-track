@@ -27,6 +27,15 @@ export const AquariumHistoryCard = ({ aquariumHistory }) => {
             <p><strong>Ammonia: </strong>{aquariumHistory.ammonia}</p>
             <p><strong>Nitrite: </strong>{aquariumHistory.nitrite}</p>
             <p><strong>Nitrate: </strong>{aquariumHistory.nitrate}</p>
+
+            <Button icon circular onClick={() => {
+                deleteAquariumHistory(aquariumHistory.id)
+                    .then(() => {
+                        history.push(`/aquarium/details/${aquariumHistory.aquariumId}`)
+                    })
+            }}>
+                <Icon name="delete" />
+            </Button>
         </Container>
     )
 }
