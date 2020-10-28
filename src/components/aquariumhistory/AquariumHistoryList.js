@@ -20,6 +20,11 @@ export const AquariumHistoryList = () => {
     const currentAquariumHistory = aquariumHistory.filter(obj => obj.aquariumId === aquariumId)
     const reversedAquariumHistory = currentAquariumHistory.reverse()
 
+    const today = Date.now()
+    const mostRecentObj = reversedAquariumHistory[0]
+
+    console.log(mostRecentObj)
+
     return (
         <>
             <Container className="aquariumHistory">
