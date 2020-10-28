@@ -72,6 +72,10 @@ export const AquariumHistoryList = () => {
         } else {
             console.log("pH looks good!")
         }
+
+        if (currentAmmonia > 0.01) console.log("ammonia level too high")
+        if (currentNitrite > 0.25) console.log("nitrite level too high")
+        if (currentNitrate > 0.25) console.log("nitrate level too high")
     }
 
     return (
