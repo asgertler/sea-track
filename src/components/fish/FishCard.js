@@ -43,7 +43,7 @@ export const FishCard = ({ fish }) => {
                         size="small"
                         trigger={
                             <Button icon>
-                                <Icon name="edit" />
+                                <Icon name="edit" /> Edit
                             </Button>
                         }>
                         <FishForm fishId={fishId} />
@@ -55,7 +55,7 @@ export const FishCard = ({ fish }) => {
                                 history.push(`/aquarium/details/${fish.aquariumId}`)
                             })
                     }}>
-                        <Icon name="delete" />
+                        <Icon name="delete" /> Delete
                     </Button>
                 </div>
             </Card.Content>

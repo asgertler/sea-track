@@ -1,16 +1,18 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { AquariumHistoryContext } from "./AquariumHistoryProvider"
 import { Container, Form } from "semantic-ui-react"
 import "./AquariumHistory.css"
 
-export const AquariumHistoryForm = props => {
+export const AquariumHistoryForm = () => {
     const { getAquariumHistory, addAquariumHistory, getAquariumHistoryById, editAquariumHistory } = useContext(AquariumHistoryContext)
 
     const [aquariumHistory, setAquariumHistory] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
     const aquariumId = parseInt(window.location.pathname.split("/").pop())
+
+    const { aquariumHistoryId } = useParams()
 
     const handleControlledInputChange = (evt) => {
         const newAquariumHistory = { ...aquariumHistory }
@@ -20,8 +22,8 @@ export const AquariumHistoryForm = props => {
 
     useEffect(() => {
         getAquariumHistory().then(() => {
-            if (props.aquariumHistoryId) {
-                getAquariumHistoryById(props.aquariumHistoryId)
+            if (aquariumHistoryId) {
+                getAquariumHistoryById(aquariumHistoryId)
                     .then(aquariumHistory => {
                         setAquariumHistory(aquariumHistory)
                         setIsLoading(false)
@@ -35,14 +37,23 @@ export const AquariumHistoryForm = props => {
     const constructNewAquariumHistory = () => {
         setIsLoading(true)
 
-        addAquariumHistory({
-            aquariumId: aquariumId,
-            pH: aquariumHistory.pH,
-            ammonia: aquariumHistory.ammonia,
-            nitrite: aquariumHistory.nitrite,
-            nitrate: aquariumHistory.nitrate,
-            testDate: new Date().toISOString().split("T")[0]
-        })
+        if (aquariumHistoryId) {
+            editAquariumHistory({
+                pH: aquariumHistory.ph,
+                ammonia: aquariumHistory.ammonia,
+                nitrite: aquariumHistory.nitrite,
+                nitrate: aquariumHistory.nitrate
+            })
+        } else {
+            addAquariumHistory({
+                aquariumId: aquariumId,
+                pH: aquariumHistory.pH,
+                ammonia: aquariumHistory.ammonia,
+                nitrite: aquariumHistory.nitrite,
+                nitrate: aquariumHistory.nitrate,
+                testDate: new Date().toISOString().split("T")[0]
+            })
+        }
     }
 
     return (
@@ -69,11 +80,11 @@ export const AquariumHistoryForm = props => {
                         required
                         type="number"
                         step="0.01"
-                        label="ammonia"
+                        label="Ammonia"
                         placeholder="e.g. .01"
                         id="testAmmonia"
                         name="ammonia"
-                        defaultValuse={aquariumHistory.ammonia}
+                        defaultValue={aquariumHistory.ammonia}
                         onChange={handleControlledInputChange}
                         width={2}
                     />
@@ -82,11 +93,11 @@ export const AquariumHistoryForm = props => {
                         required
                         type="number"
                         step="0.01"
-                        label="nitrite"
+                        label="Nitrite"
                         placeholder="e.g. .04"
                         id="testNitrite"
                         name="nitrite"
-                        defaultValuse={aquariumHistory.nitrite}
+                        defaultValue={aquariumHistory.nitrite}
                         onChange={handleControlledInputChange}
                         width={2}
                     />
@@ -95,11 +106,11 @@ export const AquariumHistoryForm = props => {
                         required
                         type="number"
                         step="0.01"
-                        label="nitrate"
+                        label="Nitrate"
                         placeholder="e.g. .03"
                         id="testNitrate"
                         name="nitrate"
-                        defaultValuse={aquariumHistory.nitrate}
+                        defaultValue={aquariumHistory.nitrate}
                         onChange={handleControlledInputChange}
                         width={2}
                     />

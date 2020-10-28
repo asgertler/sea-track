@@ -39,7 +39,7 @@ export const Aquarium = (props) => {
                             <Icon name="edit" />
                         </Button>
 
-                        <Button icon circular style={{ marginLeft: "5px" }} onClick={() => {
+                        <Button icon circular color="red" style={{ marginLeft: "5px" }} onClick={() => {
                             deleteAquarium(aquarium.id)
                                 .then(() => {
                                     history.push("/")
