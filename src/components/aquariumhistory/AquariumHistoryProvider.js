@@ -23,7 +23,7 @@ export const AquariumHistoryProvider = (props) => {
     }
 
     const editAquariumHistory = obj => {
-        return fetch(`http://localhost:8088/aquariumHistory${obj.id}`, {
+        return fetch(`http://localhost:8088/aquariumHistory/${obj.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

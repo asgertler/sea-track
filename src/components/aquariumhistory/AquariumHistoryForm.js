@@ -4,7 +4,7 @@ import { AquariumHistoryContext } from "./AquariumHistoryProvider"
 import { Container, Form } from "semantic-ui-react"
 import "./AquariumHistory.css"
 
-export const AquariumHistoryForm = () => {
+export const AquariumHistoryForm = props => {
     const { getAquariumHistory, addAquariumHistory, getAquariumHistoryById, editAquariumHistory } = useContext(AquariumHistoryContext)
 
     const [aquariumHistory, setAquariumHistory] = useState({})
@@ -22,8 +22,8 @@ export const AquariumHistoryForm = () => {
 
     useEffect(() => {
         getAquariumHistory().then(() => {
-            if (aquariumHistoryId) {
-                getAquariumHistoryById(aquariumHistoryId)
+            if (props.aquariumHistoryId) {
+                getAquariumHistoryById(props.aquariumHistoryId)
                     .then(aquariumHistory => {
                         setAquariumHistory(aquariumHistory)
                         setIsLoading(false)
@@ -37,8 +37,9 @@ export const AquariumHistoryForm = () => {
     const constructNewAquariumHistory = () => {
         setIsLoading(true)
 
-        if (aquariumHistoryId) {
+        if (props.aquariumHistoryId) {
             editAquariumHistory({
+                id: props.aquariumHistoryId,
                 pH: aquariumHistory.ph,
                 ammonia: aquariumHistory.ammonia,
                 nitrite: aquariumHistory.nitrite,
@@ -58,6 +59,8 @@ export const AquariumHistoryForm = () => {
 
     return (
         <Container className="aquariumHistoryFormContainer">
+            <h3 className="fishForm_title">{props.aquariumHistoryId ? "Edit Water Change" : "Log Water Change"}</h3>
+
             <Form className="aquariumHistoryForm" onSubmit={evt => {
                 evt.preventDefault()
                 constructNewAquariumHistory()

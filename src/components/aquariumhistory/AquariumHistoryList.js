@@ -23,7 +23,6 @@ export const AquariumHistoryList = () => {
     return (
         <>
             <Container className="aquariumHistory">
-                <h3>Log Water Change</h3>
                 <AquariumHistoryForm />
 
                 <h3>Water Quality History</h3>
