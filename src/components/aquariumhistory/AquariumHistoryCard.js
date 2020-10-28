@@ -33,7 +33,7 @@ export const AquariumHistoryCard = ({ aquariumHistory }) => {
                         onClose={() => setOpen(false)}
                         onOpen={() => setOpen(true)}
                         open={open}
-                        size="small"
+                        size="tiny"
                         trigger={
                             <Button icon>
                                 <Icon name="edit" /> Edit

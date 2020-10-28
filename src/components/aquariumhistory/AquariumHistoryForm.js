@@ -76,7 +76,7 @@ export const AquariumHistoryForm = props => {
                         name="pH"
                         defaultValue={aquariumHistory.pH}
                         onChange={handleControlledInputChange}
-                        width={2}
+                        width={props.aquariumHistoryId ? 4 : 2}
                     />
 
                     <Form.Input
@@ -89,7 +89,7 @@ export const AquariumHistoryForm = props => {
                         name="ammonia"
                         defaultValue={aquariumHistory.ammonia}
                         onChange={handleControlledInputChange}
-                        width={2}
+                        width={props.aquariumHistoryId ? 4 : 2}
                     />
 
                     <Form.Input
@@ -102,7 +102,7 @@ export const AquariumHistoryForm = props => {
                         name="nitrite"
                         defaultValue={aquariumHistory.nitrite}
                         onChange={handleControlledInputChange}
-                        width={2}
+                        width={props.aquariumHistoryId ? 4 : 2}
                     />
 
                     <Form.Input
@@ -115,27 +115,31 @@ export const AquariumHistoryForm = props => {
                         name="nitrate"
                         defaultValue={aquariumHistory.nitrate}
                         onChange={handleControlledInputChange}
-                        width={2}
+                        width={props.aquariumHistoryId ? 4 : 2}
                     />
                 </Form.Group>
 
-                <Form.Checkbox
-                    required
-                    label="Vacuum Substrate"
-                    inline
-                />
+                {props.aquariumHistoryId ? "" :
+                    <div>
+                        <Form.Checkbox
+                            required
+                            label="Vacuum Substrate"
+                            inline
+                        />
 
-                <Form.Checkbox
-                    required
-                    label="Clean Filters"
-                    inline
-                />
+                        <Form.Checkbox
+                            required
+                            label="Clean Filters"
+                            inline
+                        />
 
-                <Form.Checkbox
-                    required
-                    label="Add Conditioner"
-                    inline
-                />
+                        <Form.Checkbox
+                            required
+                            label="Add Conditioner"
+                            inline
+                        />
+                    </div>
+                }
 
                 <Form.Button primary className="button__submit" type="submit" disabled={isLoading}>
                     Save
