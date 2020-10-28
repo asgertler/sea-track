@@ -22,9 +22,9 @@ export const AquariumHistoryCard = ({ aquariumHistory }) => {
             <Card.Content>
                 <h4>{usableDate}</h4>
                 <p><strong>pH: </strong>{aquariumHistory.pH}</p>
-                <p><strong>Ammonia: </strong>{aquariumHistory.ammonia}</p>
-                <p><strong>Nitrite: </strong>{aquariumHistory.nitrite}</p>
-                <p><strong>Nitrate: </strong>{aquariumHistory.nitrate}</p>
+                <p><strong>Ammonia: </strong>{aquariumHistory.ammonia} ppm</p>
+                <p><strong>Nitrite: </strong>{aquariumHistory.nitrite} ppm</p>
+                <p><strong>Nitrate: </strong>{aquariumHistory.nitrate} ppm</p>
             </Card.Content>
 
             <Card.Content>

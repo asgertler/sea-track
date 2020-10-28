@@ -38,7 +38,7 @@ export const AquariumHistoryForm = props => {
         if (props.aquariumHistoryId) {
             editAquariumHistory({
                 id: props.aquariumHistoryId,
-                pH: aquariumHistory.ph,
+                pH: aquariumHistory.pH,
                 ammonia: aquariumHistory.ammonia,
                 nitrite: aquariumHistory.nitrite,
                 nitrate: aquariumHistory.nitrate
@@ -60,10 +60,33 @@ export const AquariumHistoryForm = props => {
             <h3 className="fishForm_title">{props.aquariumHistoryId ? "Edit Water Change" : "Log Water Change"}</h3>
 
             { props.warningTime === true ?
-
                 <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
                     You're {props.overdueDays} days overdue for a water change.</strong></span>
+                : ""}
 
+            { props.warningPhLow === true ?
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    pH is currently {props.currentPh} but needs to be above {props.phLowMax}.</strong></span>
+                : ""}
+
+            { props.warningPhHigh === true ?
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    pH is currently {props.currentPh} but needs to be above {props.phHighMin}</strong></span>
+                : ""}
+
+            { props.warningAmmonia === true ?
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    Ammonia levels are too high.</strong></span>
+                : ""}
+
+            { props.warningNitrite === true ?
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    Nitrite levels are too high.</strong></span>
+                : ""}
+
+            { props.warningNitrate === true ?
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    Nitrate levels are too high.</strong></span>
                 : ""}
 
             <Form className="aquariumHistoryForm" onSubmit={evt => {
@@ -88,7 +111,7 @@ export const AquariumHistoryForm = props => {
                         required
                         type="number"
                         step="0.01"
-                        label="Ammonia"
+                        label="Ammonia (ppm)"
                         placeholder="e.g. .01"
                         id="testAmmonia"
                         name="ammonia"
@@ -101,8 +124,8 @@ export const AquariumHistoryForm = props => {
                         required
                         type="number"
                         step="0.01"
-                        label="Nitrite"
-                        placeholder="e.g. .04"
+                        label="Nitrite (ppm)"
+                        placeholder="e.g. .02"
                         id="testNitrite"
                         name="nitrite"
                         defaultValue={aquariumHistory.nitrite}
@@ -114,7 +137,7 @@ export const AquariumHistoryForm = props => {
                         required
                         type="number"
                         step="0.01"
-                        label="Nitrate"
+                        label="Nitrate (ppm)"
                         placeholder="e.g. .03"
                         id="testNitrate"
                         name="nitrate"
