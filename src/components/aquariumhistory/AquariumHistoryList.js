@@ -38,9 +38,10 @@ export const AquariumHistoryList = () => {
         if (timeGap > twoWeeks) {
             warningTime = true // tell form to display warning
             overdueDays = Math.floor((timeGap - twoWeeks) / (86400 * 1000)) // overdue days
-            console.log(overdueDays)
         }
     }
+
+
 
     return (
         <>

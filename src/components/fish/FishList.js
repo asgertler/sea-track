@@ -18,6 +18,8 @@ export const FishList = () => {
 
     const aquariumFish = fish.filter(fish => fish.aquariumId === aquariumId)
 
+    console.log(aquariumFish)
+
     return (
         <>
             <Card.Group className="aquariumFish">
