@@ -20,13 +20,14 @@ export const AquariumHistoryList = () => {
     const currentAquariumHistory = aquariumHistory.filter(obj => obj.aquariumId === aquariumId)
     const reversedAquariumHistory = currentAquariumHistory.reverse()
 
-    let warningTime = false
+    const mostRecentObj = reversedAquariumHistory[0] // focus on the most recent water change
 
-    // focus on the most recent water change
-    const mostRecentObj = reversedAquariumHistory[0]
+    let mostRecentDate // date to handle math
+    let warningTime = false // default state of no overdue time warning
+    let overdueDays = ""
+
 
     // setting up date test to see if last water change was more than two weeks ago
-    let mostRecentDate
     if (mostRecentObj !== undefined) {
         const today = Date.now()
         mostRecentDate = mostRecentObj.testDate // date from most recent water change
@@ -36,14 +37,16 @@ export const AquariumHistoryList = () => {
         const twoWeeks = 1209600000 // two weeks in milliseconds
 
         if (timeGap > twoWeeks) {
-            warningTime = true
+            warningTime = true // tell form to display warning
+            overdueDays = Math.floor((timeGap - twoWeeks) / (86400 * 1000)) // overdue days
+            console.log(overdueDays)
         }
     }
 
     return (
         <>
             <Container className="aquariumHistory">
-                <AquariumHistoryForm warningTime={warningTime} />
+                <AquariumHistoryForm warningTime={warningTime} overdueDays={overdueDays} />
 
                 {currentAquariumHistory.length > 0 ? <h3>Water Quality History</h3> : ""}
                 <Card.Group>

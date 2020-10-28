@@ -61,8 +61,8 @@ export const AquariumHistoryForm = props => {
 
             { props.warningTime === true ?
 
-                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>It's been more than two weeks
-            since you're last water change</strong></span>
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    You're {props.overdueDays} days overdue for a water change.</strong></span>
 
                 : ""}
 
