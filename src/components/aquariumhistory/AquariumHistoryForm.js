@@ -120,25 +120,31 @@ export const AquariumHistoryForm = props => {
                 </Form.Group>
 
                 {props.aquariumHistoryId ? "" :
-                    <div>
-                        <Form.Checkbox
+                    <Form.Group>
+                        <Form.Input
                             required
                             label="Vacuum Substrate"
                             inline
-                        />
+                        >
+                            <input type="checkbox" id="vacuumSubstrate" name="vacuumSubstrate" required />
+                        </Form.Input>
 
-                        <Form.Checkbox
+                        <Form.Input
                             required
                             label="Clean Filters"
                             inline
-                        />
+                        >
+                            <input type="checkbox" id="cleanFilters" name="cleanFilters" required />
+                        </Form.Input>
 
-                        <Form.Checkbox
+                        <Form.Input
                             required
                             label="Add Conditioner"
                             inline
-                        />
-                    </div>
+                        >
+                            <input type="checkbox" id="addConditioner" name="addConditioner" required />
+                        </Form.Input>
+                    </Form.Group>
                 }
 
                 <Form.Button primary className="button__submit" type="submit" disabled={isLoading}>

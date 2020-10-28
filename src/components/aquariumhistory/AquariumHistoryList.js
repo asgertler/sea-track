@@ -25,7 +25,7 @@ export const AquariumHistoryList = () => {
             <Container className="aquariumHistory">
                 <AquariumHistoryForm />
 
-                <h3>Water Quality History</h3>
+                {currentAquariumHistory.length > 0 ? <h3>Water Quality History</h3> : ""}
                 <Card.Group>
                     {
                         reversedAquariumHistory.map(aquariumHistory => {
