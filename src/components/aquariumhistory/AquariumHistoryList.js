@@ -29,8 +29,13 @@ export const AquariumHistoryList = () => {
 
     let mostRecentDate // date to handle math
     let warningTime = false // default state of no overdue time warning
-    let overdueDays
+    let overdueDays // holds number of days since last water change
     let currentPh // holds pH level from most recent test
+
+    let warningPh = false
+    let warningAmmonia = false
+    let warningNitrite = false
+    let warningNitrate = false
     let currentAmmonia // holds ammonia level from most recent test
     let currentNitrite // holds nitrite level from most recent test
     let currentNitrate // holds nitrate level from most recent test
@@ -66,22 +71,31 @@ export const AquariumHistoryList = () => {
         phHighMin = findPhHigh.pHHigh // sets pH ceiling for aquarium
 
         if (currentPh < phLowMax) {
-            console.log("pH too low")
         } else if (currentPh > phHighMin) {
-            console.log("pH too high")
         } else {
-            console.log("pH looks good!")
         }
 
-        if (currentAmmonia > 0.01) console.log("ammonia level too high")
-        if (currentNitrite > 0.25) console.log("nitrite level too high")
-        if (currentNitrate > 0.25) console.log("nitrate level too high")
+        if (currentAmmonia > 0.01) {
+            warningAmmonia = true
+        }
+
+        if (currentNitrite > 0.25) {
+            warningNitrite = true
+        }
+        if (currentNitrate > 0.25) {
+            warningNitrate = true
+        }
     }
 
     return (
         <>
             <Container className="aquariumHistory">
-                <AquariumHistoryForm warningTime={warningTime} overdueDays={overdueDays} />
+                <AquariumHistoryForm warningTime={warningTime} overdueDays={overdueDays}
+
+                    warningAmmonia={warningAmmonia}
+                    warningNitrite={warningNitrite}
+                    warningNitrate={warningNitrate}
+                />
 
                 {currentAquariumHistory.length > 0 ? <h3>Water Quality History</h3> : ""}
                 <Card.Group>

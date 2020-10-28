@@ -66,6 +66,27 @@ export const AquariumHistoryForm = props => {
 
                 : ""}
 
+            { props.warningAmmonia === true ?
+
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    Ammonia levels are too high.</strong></span>
+
+                : ""}
+
+            { props.warningNitrite === true ?
+
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    Nitrite levels are too high.</strong></span>
+
+                : ""}
+
+            { props.warningNitrate === true ?
+
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    Nitrate levels are too high.</strong></span>
+
+                : ""}
+
             <Form className="aquariumHistoryForm" onSubmit={evt => {
                 evt.preventDefault()
                 constructNewAquariumHistory()
@@ -88,7 +109,7 @@ export const AquariumHistoryForm = props => {
                         required
                         type="number"
                         step="0.01"
-                        label="Ammonia"
+                        label="Ammonia (ppm)"
                         placeholder="e.g. .01"
                         id="testAmmonia"
                         name="ammonia"
@@ -101,7 +122,7 @@ export const AquariumHistoryForm = props => {
                         required
                         type="number"
                         step="0.01"
-                        label="Nitrite"
+                        label="Nitrite (ppm)"
                         placeholder="e.g. .04"
                         id="testNitrite"
                         name="nitrite"
@@ -114,7 +135,7 @@ export const AquariumHistoryForm = props => {
                         required
                         type="number"
                         step="0.01"
-                        label="Nitrate"
+                        label="Nitrate (ppm)"
                         placeholder="e.g. .03"
                         id="testNitrate"
                         name="nitrate"
