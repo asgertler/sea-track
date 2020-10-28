@@ -7,13 +7,11 @@ import { FishForm } from "../fish/FishForm"
 import { AquariumHistoryList } from "../aquariumhistory/AquariumHistoryList"
 import "./Aquarium.css"
 
-export const Aquarium = (props) => {
+export const Aquarium = () => {
     const { getAquariumById, deleteAquarium } = useContext(AquariumContext)
 
     const [aquarium, setAquarium] = useState({})
     const [open, setOpen] = React.useState(false)
-
-    const [fishState, setFishState] = useState()
 
     const { aquariumId } = useParams()
 

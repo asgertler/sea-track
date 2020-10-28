@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { FishContext } from "./FishProvider"
 import { FishCard } from "./FishCard"
@@ -17,8 +17,6 @@ export const FishList = () => {
     }, [fishId])
 
     const aquariumFish = fish.filter(fish => fish.aquariumId === aquariumId)
-
-    console.log(aquariumFish)
 
     return (
         <>
