@@ -20,10 +20,30 @@ export const AquariumHistoryList = () => {
     const currentAquariumHistory = aquariumHistory.filter(obj => obj.aquariumId === aquariumId)
     const reversedAquariumHistory = currentAquariumHistory.reverse()
 
+    let warningTime = false
+
+    // focus on the most recent water change
+    const mostRecentObj = reversedAquariumHistory[0]
+
+    // setting up date test to see if last water change was more than two weeks ago
+    let mostRecentDate
+    if (mostRecentObj !== undefined) {
+        const today = Date.now()
+        mostRecentDate = mostRecentObj.testDate // date from most recent water change
+        const mostRecentParse = Date.parse(mostRecentDate) // parsing that date
+
+        const timeGap = today - mostRecentParse // time gap in milliseconds
+        const twoWeeks = 1209600000 // two weeks in milliseconds
+
+        if (timeGap > twoWeeks) {
+            warningTime = true
+        }
+    }
+
     return (
         <>
             <Container className="aquariumHistory">
-                <AquariumHistoryForm />
+                <AquariumHistoryForm warningTime={warningTime} />
 
                 {currentAquariumHistory.length > 0 ? <h3>Water Quality History</h3> : ""}
                 <Card.Group>
