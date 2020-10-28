@@ -6,6 +6,7 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { AquariumProvider } from "./aquarium/AquariumProvider"
 import { FishProvider } from "./fish/FishProvider"
+import { AquariumHistoryProvider } from "./aquariumhistory/AquariumHistoryProvider"
 import "./Dashboard.css"
 
 export const Dashboard = () => (
@@ -18,8 +19,10 @@ export const Dashboard = () => (
                             <div className="dashboardView">
                                 <AquariumProvider>
                                     <FishProvider>
-                                        <NavBar />
-                                        <ApplicationViews />
+                                        <AquariumHistoryProvider>
+                                            <NavBar />
+                                            <ApplicationViews />
+                                        </AquariumHistoryProvider>
                                     </FishProvider>
                                 </AquariumProvider>
                             </div>

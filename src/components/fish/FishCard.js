@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { FishContext } from "./FishProvider"
-import { Button, Container, Icon, Modal } from "semantic-ui-react"
+import { Button, Card, Icon, Modal } from "semantic-ui-react"
 import { FishForm } from "./FishForm"
 import "./Fish.css"
 
@@ -24,35 +24,41 @@ export const FishCard = ({ fish }) => {
     const fishId = fish.id
 
     return (
-        <Container className="fish__card" id={fish.id}>
-            <h4 className="fish__name">{fish.name}</h4>
-            <p className="fish__type"><strong>Type: </strong>{fish.type}</p>
-            <p className="fish__age"><strong>Age: </strong>{years} years, {months} months</p>
-            <p className="fish__length"><strong>Max Length: </strong>{fish.length}"</p>
-            <p className="fish__diest"><strong>Diet: </strong>{fish.diet}</p>
-            <p className="fish__pH"><strong>pH Range: </strong>{fish.pHLow} - {fish.pHHigh}</p>
+        <Card className="fish__card" id={fish.id}>
+            <Card.Content>
+                <h4 className="fish__name">{fish.name}</h4>
+                <p className="fish__type"><strong>Type: </strong>{fish.type}</p>
+                <p className="fish__age"><strong>Age: </strong>{years} years, {months} months</p>
+                <p className="fish__length"><strong>Max Length: </strong>{fish.length}"</p>
+                <p className="fish__diest"><strong>Diet: </strong>{fish.diet}</p>
+                <p className="fish__pH"><strong>pH Range: </strong>{fish.pHLow} - {fish.pHHigh}</p>
+            </Card.Content>
 
-            <Modal
-                onClose={() => setOpen(false)}
-                onOpen={() => setOpen(true)}
-                open={open}
-                size="small"
-                trigger={
-                    <Button icon circular>
-                        <Icon name="edit" />
+            <Card.Content>
+                <div className="ui two buttons">
+                    <Modal
+                        onClose={() => setOpen(false)}
+                        onOpen={() => setOpen(true)}
+                        open={open}
+                        size="small"
+                        trigger={
+                            <Button icon>
+                                <Icon name="edit" /> Edit
+                            </Button>
+                        }>
+                        <FishForm fishId={fishId} />
+                    </Modal >
+
+                    <Button icon color="red" onClick={() => {
+                        deleteFish(fish.id)
+                            .then(() => {
+                                history.push(`/aquarium/details/${fish.aquariumId}`)
+                            })
+                    }}>
+                        <Icon name="delete" /> Delete
                     </Button>
-                }>
-                <FishForm fishId={fishId} />
-            </Modal >
-
-            <Button icon circular onClick={() => {
-                deleteFish(fish.id)
-                    .then(() => {
-                        history.push(`/aquarium/details/${fish.aquariumId}`)
-                    })
-            }}>
-                <Icon name="delete" />
-            </Button>
-        </Container >
+                </div>
+            </Card.Content>
+        </Card >
     )
 }

@@ -4,6 +4,7 @@ import { AquariumContext } from "./AquariumProvider"
 import { Button, Container, Icon, Modal } from "semantic-ui-react"
 import { FishList } from "../fish/FishList"
 import { FishForm } from "../fish/FishForm"
+import { AquariumHistoryList } from "../aquariumhistory/AquariumHistoryList"
 import "./Aquarium.css"
 
 export const Aquarium = (props) => {
@@ -28,25 +29,27 @@ export const Aquarium = (props) => {
     return (
         <Container>
             <section className="aquarium">
-                <h2 className="aquarium__name">{aquarium.name}</h2>
+                <div className="aquarium__header">
+                    <h2 className="aquarium__name"><strong>{aquarium.name}</strong> / {aquarium.gal} gal</h2>
 
-                <Button icon circular onClick={() => {
-                    history.push(`/aquarium/edit/${aquarium.id}`)
-                }}>
-                    <Icon name="edit" />
-                </Button>
+                    <div className="aquarium__buttons">
+                        <Button icon circular onClick={() => {
+                            history.push(`/aquarium/edit/${aquarium.id}`)
+                        }}>
+                            <Icon name="edit" />
+                        </Button>
 
-                <Button icon circular onClick={() => {
-                    deleteAquarium(aquarium.id)
-                        .then(() => {
-                            history.push("/")
-                        })
-                }
-                }>
-                    <Icon name="delete" />
-                </Button>
-
-                <p className="aquarium__size">{aquarium.gal}</p>
+                        <Button icon circular color="red" style={{ marginLeft: "5px" }} onClick={() => {
+                            deleteAquarium(aquarium.id)
+                                .then(() => {
+                                    history.push("/")
+                                })
+                        }
+                        }>
+                            <Icon name="delete" />
+                        </Button>
+                    </div>
+                </div>
 
                 <section className="aquarium__fish">
                     <Modal
@@ -55,7 +58,7 @@ export const Aquarium = (props) => {
                         open={open}
                         size="small"
                         trigger={
-                            <Button circular>
+                            <Button>
                                 <Icon name="plus" /> Fish
                             </Button>
                         }
@@ -64,6 +67,7 @@ export const Aquarium = (props) => {
                     </Modal>
 
                     <FishList />
+                    <AquariumHistoryList />
                 </section>
             </section>
         </Container>
