@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
 import { AquariumHistoryContext } from "./AquariumHistoryProvider"
 import { Container, Form } from "semantic-ui-react"
+import { Icon } from "semantic-ui-react"
 import "./AquariumHistory.css"
 
 export const AquariumHistoryForm = props => {
@@ -11,8 +11,6 @@ export const AquariumHistoryForm = props => {
     const [isLoading, setIsLoading] = useState(true)
 
     const aquariumId = parseInt(window.location.pathname.split("/").pop())
-
-    const { aquariumHistoryId } = useParams()
 
     const handleControlledInputChange = (evt) => {
         const newAquariumHistory = { ...aquariumHistory }
@@ -60,6 +58,13 @@ export const AquariumHistoryForm = props => {
     return (
         <Container className="aquariumHistoryFormContainer">
             <h3 className="fishForm_title">{props.aquariumHistoryId ? "Edit Water Change" : "Log Water Change"}</h3>
+
+            { props.warningTime === true ?
+
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>It's been more than two weeks
+            since you're last water change</strong></span>
+
+                : ""}
 
             <Form className="aquariumHistoryForm" onSubmit={evt => {
                 evt.preventDefault()
@@ -151,6 +156,6 @@ export const AquariumHistoryForm = props => {
                     Save
                 </Form.Button>
             </Form>
-        </Container>
+        </Container >
     )
 }
