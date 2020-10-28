@@ -38,7 +38,7 @@ export const AquariumHistoryForm = props => {
         if (props.aquariumHistoryId) {
             editAquariumHistory({
                 id: props.aquariumHistoryId,
-                pH: aquariumHistory.ph,
+                pH: aquariumHistory.pH,
                 ammonia: aquariumHistory.ammonia,
                 nitrite: aquariumHistory.nitrite,
                 nitrate: aquariumHistory.nitrate
@@ -125,7 +125,7 @@ export const AquariumHistoryForm = props => {
                         type="number"
                         step="0.01"
                         label="Nitrite (ppm)"
-                        placeholder="e.g. .04"
+                        placeholder="e.g. .02"
                         id="testNitrite"
                         name="nitrite"
                         defaultValue={aquariumHistory.nitrite}
