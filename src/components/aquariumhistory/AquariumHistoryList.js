@@ -26,7 +26,6 @@ export const AquariumHistoryList = () => {
     let warningTime = false // default state of no overdue time warning
     let overdueDays = ""
 
-
     // setting up date test to see if last water change was more than two weeks ago
     if (mostRecentObj !== undefined) {
         const today = Date.now()
