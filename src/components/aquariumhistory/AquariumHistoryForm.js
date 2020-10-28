@@ -66,6 +66,20 @@ export const AquariumHistoryForm = props => {
 
                 : ""}
 
+            { props.warningPhLow === true ?
+
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    pH is currently {props.currentPh} but needs to be above {props.phLowMax}.</strong></span>
+
+                : ""}
+
+            { props.warningPhHigh === true ?
+
+                <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>
+                    pH is currently {props.currentPh} but needs to be above {props.phHighMin}</strong></span>
+
+                : ""}
+
             { props.warningAmmonia === true ?
 
                 <span><Icon name="warning sign" color="red" /> <strong style={{ color: "red" }}>

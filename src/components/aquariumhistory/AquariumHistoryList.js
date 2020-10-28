@@ -30,17 +30,21 @@ export const AquariumHistoryList = () => {
     let mostRecentDate // date to handle math
     let warningTime = false // default state of no overdue time warning
     let overdueDays // holds number of days since last water change
-    let currentPh // holds pH level from most recent test
 
-    let warningPh = false
-    let warningAmmonia = false
-    let warningNitrite = false
-    let warningNitrate = false
-    let currentAmmonia // holds ammonia level from most recent test
-    let currentNitrite // holds nitrite level from most recent test
-    let currentNitrate // holds nitrate level from most recent test
+    let currentPh // holds pH level from most recent test
     let phLowMax // placeholder for low pH range value
     let phHighMin // placeholder for high pH range value
+    let warningPhHigh = false
+    let warningPhLow = false
+
+    let currentAmmonia // holds ammonia level from most recent test
+    let warningAmmonia = false
+
+    let currentNitrite // holds nitrite level from most recent test
+    let warningNitrite = false
+
+    let currentNitrate // holds nitrate level from most recent test
+    let warningNitrate = false
 
     if (mostRecentObj !== undefined && aquariumFish.length > 0) {
         const today = Date.now()
@@ -71,27 +75,34 @@ export const AquariumHistoryList = () => {
         phHighMin = findPhHigh.pHHigh // sets pH ceiling for aquarium
 
         if (currentPh < phLowMax) {
+            warningPhLow = true // send aler that pH is too low
         } else if (currentPh > phHighMin) {
-        } else {
+            warningPhHigh = true // send alert that pH is too high
         }
 
         if (currentAmmonia > 0.01) {
-            warningAmmonia = true
+            warningAmmonia = true // send alert that ammonia is too high
         }
 
         if (currentNitrite > 0.25) {
-            warningNitrite = true
+            warningNitrite = true // send alert that nitrite is too high
         }
         if (currentNitrate > 0.25) {
-            warningNitrate = true
+            warningNitrate = true // send alert that nitrate is too high
         }
     }
 
     return (
         <>
             <Container className="aquariumHistory">
-                <AquariumHistoryForm warningTime={warningTime} overdueDays={overdueDays}
-
+                <AquariumHistoryForm
+                    warningTime={warningTime}
+                    overdueDays={overdueDays}
+                    warningPhLow={warningPhLow}
+                    warningPhHigh={warningPhHigh}
+                    currentPh={currentPh}
+                    phLowMax={phLowMax}
+                    phHighMin={phHighMin}
                     warningAmmonia={warningAmmonia}
                     warningNitrite={warningNitrite}
                     warningNitrate={warningNitrate}
