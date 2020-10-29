@@ -12,12 +12,12 @@ export const AquariumTask = ({ task }) => {
     return (
         <div className="aquariumTask">
             {task.complete === false ?
-                <Checkbox label={task.task} onChange={() => {
+                <Checkbox label={task.task} style={{ marginRight: "10px" }} onChange={() => {
                     task.complete = true
                     completeAquariumTask(task)
                 }} />
                 :
-                <Checkbox label={task.task} defaultChecked disabled />
+                <Checkbox label={task.task} defaultChecked disabled style={{ marginRight: "10px" }} />
             }
 
             <Modal
@@ -26,18 +26,14 @@ export const AquariumTask = ({ task }) => {
                 open={open}
                 size="small"
                 trigger={
-                    <Button icon circular size="mini">
-                        <Icon name="edit" />
-                    </Button>
+                    <Icon name="edit" style={{ cursor: "pointer" }} />
                 }>
                 <AquariumTasksForm taskId={task.id} />
             </Modal>
 
-            <Button icon circular color="red" size="mini" onClick={() => {
+            <Icon name="trash" color="red" style={{ cursor: "pointer" }} onClick={() => {
                 deleteAquariumTask(task.id)
-            }}>
-                <Icon name="trash" />
-            </Button>
+            }} />
         </div>
     )
 }
