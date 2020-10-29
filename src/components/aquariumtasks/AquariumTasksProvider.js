@@ -10,4 +10,46 @@ export const AquariumTasksProvider = (props) => {
             .then(res => res.json())
             .then(setAquariumTasks)
     }
+
+    const addAquariumTask = obj => {
+        return fetch("http://localhost:8088/aquariumTasks", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+        })
+            .then(getAquariumTasks)
+    }
+
+    const editAquariumTask = obj => {
+        return fetch(`http://localhost:8088/aquariumTasks/${obj.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+        })
+            .then(getAquariumTasks)
+    }
+
+    const deleteAquariumTask = id => {
+        return fetch(`http://localhost:8088/aquariumTasks/${id}`, {
+            method: "DELETE"
+        })
+            .then(getAquariumTasks)
+    }
+
+    const getAquariumTaskById = id => {
+        return fetch(`http://localhost:8088/aquariumTasks/${id}`)
+            .then(res => res.json())
+    }
+
+    return (
+        <AquariumTasksContext.Provider value={{
+            aquariumTasks, getAquariumTasks, addAquariumTask, editAquariumTask, deleteAquariumTask, getAquariumTaskById
+        }}>
+            {props.children}
+        </AquariumTasksContext.Provider>
+    )
 }

@@ -7,6 +7,7 @@ import { Register } from "./auth/Register"
 import { AquariumProvider } from "./aquarium/AquariumProvider"
 import { FishProvider } from "./fish/FishProvider"
 import { AquariumHistoryProvider } from "./aquariumhistory/AquariumHistoryProvider"
+import { AquariumTasksProvider } from "./aquariumtasks/AquariumTasksProvider"
 import "./Dashboard.css"
 
 export const Dashboard = () => (
@@ -20,8 +21,10 @@ export const Dashboard = () => (
                                 <AquariumProvider>
                                     <FishProvider>
                                         <AquariumHistoryProvider>
-                                            <NavBar />
-                                            <ApplicationViews />
+                                            <AquariumTasksProvider>
+                                                <NavBar />
+                                                <ApplicationViews />
+                                            </AquariumTasksProvider>
                                         </AquariumHistoryProvider>
                                     </FishProvider>
                                 </AquariumProvider>
