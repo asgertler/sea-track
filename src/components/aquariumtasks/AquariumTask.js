@@ -11,10 +11,14 @@ export const AquariumTask = ({ task }) => {
 
     return (
         <div className="aquariumTask">
-            <Checkbox label={task.task} onChange={() => {
-                task.complete = true
-                completeAquariumTask(task)
-            }} />
+            {task.complete === false ?
+                <Checkbox label={task.task} onChange={() => {
+                    task.complete = true
+                    completeAquariumTask(task)
+                }} />
+                :
+                <Checkbox label={task.task} defaultChecked disabled />
+            }
 
             <Modal
                 onClose={() => setOpen(false)}
