@@ -9,7 +9,7 @@ import "./AquariumTasks.css"
 export const AquariumTasksList = () => {
     const aquariumId = parseInt(window.location.pathname.split("/").pop())
 
-    const { aquariumTasks, getAquariumTasks } = useContext(AquariumTasksContext)
+    const { aquariumTasks, getAquariumTasks, completeAquariumTask } = useContext(AquariumTasksContext)
 
     const [open, setOpen] = useState(false)
 
@@ -20,6 +20,15 @@ export const AquariumTasksList = () => {
     }, [taskId])
 
     const thisAquariumTasks = aquariumTasks.filter(task => task.aquariumId === aquariumId)
+
+    const resetTasks = (task) => {
+        thisAquariumTasks.forEach(task => {
+            if (task.complete === true) {
+                task.complete = false
+                completeAquariumTask(task)
+            }
+        })
+    }
 
     return (
         <>
@@ -39,6 +48,10 @@ export const AquariumTasksList = () => {
                         }>
                         <AquariumTasksForm />
                     </Modal>
+
+                    <Button icon circular size="mini" onClick={() => resetTasks()}>
+                        <Icon name="refresh" />
+                    </Button>
                 </div>
 
                 {
