@@ -24,20 +24,22 @@ export const AquariumTasksList = () => {
     return (
         <>
             <div>
-                <h3>Weekly Tasks</h3>
+                <div className="aquariumTasksHeader">
+                    <h3>Weekly Tasks</h3>
 
-                <Modal
-                    onClose={() => setOpen(false)}
-                    onOpen={() => setOpen(true)}
-                    open={open}
-                    size="tiny"
-                    trigger={
-                        <Button icon circular>
-                            <Icon name="plus" />
-                        </Button>
-                    }>
-                    <AquariumTasksForm />
-                </Modal>
+                    <Modal
+                        onClose={() => setOpen(false)}
+                        onOpen={() => setOpen(true)}
+                        open={open}
+                        size="tiny"
+                        trigger={
+                            <Button icon circular size="mini">
+                                <Icon name="plus" />
+                            </Button>
+                        }>
+                        <AquariumTasksForm />
+                    </Modal>
+                </div>
 
                 {
                     thisAquariumTasks.map(task => {
