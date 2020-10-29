@@ -11,10 +11,20 @@ export const AquariumTask = ({ task }) => {
 
     return (
         <div className="aquariumTask">
-            <Checkbox label={task.task} onChange={() => {
-                task.complete = true
-                completeAquariumTask(task)
-            }} />
+            {task.complete === false ?
+                <Button icon labelPosition="left" className="individualTasks" basic onClick={() => {
+                    task.complete = true
+                    completeAquariumTask(task)
+                }}>
+                    <Icon name="check" />
+                    {task.task}
+                </Button>
+                :
+                <Button icon labelPosition="left" className="individualTasks" disabled>
+                    <Icon name="check" />
+                    {task.task}
+                </Button>
+            }
 
             <Modal
                 onClose={() => setOpen(false)}
@@ -22,18 +32,14 @@ export const AquariumTask = ({ task }) => {
                 open={open}
                 size="small"
                 trigger={
-                    <Button icon circular>
-                        <Icon name="edit" />
-                    </Button>
+                    <Icon name="edit" style={{ cursor: "pointer" }} />
                 }>
                 <AquariumTasksForm taskId={task.id} />
             </Modal>
 
-            <Button icon circular color="red" onClick={() => {
+            <Icon name="trash" color="red" style={{ cursor: "pointer" }} onClick={() => {
                 deleteAquariumTask(task.id)
-            }}>
-                <Icon name="delete" />
-            </Button>
+            }} />
         </div>
     )
 }

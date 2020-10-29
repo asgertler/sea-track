@@ -49,7 +49,7 @@ export const AquariumTasksProvider = (props) => {
         return fetch(`http://localhost:8088/aquariumTasks/${task.id}`, {
             method: "PATCH",
             headers: {
-                "ContentType": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(task)
         })

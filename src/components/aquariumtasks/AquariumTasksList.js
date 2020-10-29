@@ -9,7 +9,7 @@ import "./AquariumTasks.css"
 export const AquariumTasksList = () => {
     const aquariumId = parseInt(window.location.pathname.split("/").pop())
 
-    const { aquariumTasks, getAquariumTasks } = useContext(AquariumTasksContext)
+    const { aquariumTasks, getAquariumTasks, completeAquariumTask } = useContext(AquariumTasksContext)
 
     const [open, setOpen] = useState(false)
 
@@ -21,29 +21,56 @@ export const AquariumTasksList = () => {
 
     const thisAquariumTasks = aquariumTasks.filter(task => task.aquariumId === aquariumId)
 
+    const resetTasks = () => {
+        thisAquariumTasks.forEach(task => {
+            if (task.complete === true) {
+                task.complete = false
+                completeAquariumTask(task)
+            }
+        })
+    }
+
+    const incompleteTasks = thisAquariumTasks.filter(task => task.complete === false)
+
     return (
         <>
             <div>
-                <h3>Weekly Tasks</h3>
+                <div className="aquariumTasksHeader">
+                    <h3>Weekly Tasks</h3>
 
-                <Modal
-                    onClose={() => setOpen(false)}
-                    onOpen={() => setOpen(true)}
-                    open={open}
-                    size="tiny"
-                    trigger={
-                        <Button icon circular>
-                            <Icon name="plus" />
-                        </Button>
-                    }>
-                    <AquariumTasksForm />
-                </Modal>
+                    <Modal
+                        onClose={() => setOpen(false)}
+                        onOpen={() => setOpen(true)}
+                        open={open}
+                        size="tiny"
+                        trigger={
+                            <Button className="tasksBtns" icon circular size="mini">
+                                <Icon name="plus" />
+                            </Button>
+                        }>
+                        <AquariumTasksForm />
+                    </Modal>
 
-                {
-                    thisAquariumTasks.map(task => {
-                        return <AquariumTask key={task.id} task={task} />
-                    })
+                    <Button className="tasksBtns" icon circular size="mini" onClick={() => resetTasks()}>
+                        <Icon name="refresh" />
+                    </Button>
+                </div>
+
+                {incompleteTasks.length > 0 ?
+                    <div>
+                        {
+                            thisAquariumTasks.map(task => {
+                                return <AquariumTask key={task.id} task={task} />
+                            })
+                        }
+                    </div>
+                    :
+                    <span>
+                        <Icon name="thumbs up outline" />All Tasks Completed!
+                    </span>
                 }
+
+
             </div>
         </>
     )

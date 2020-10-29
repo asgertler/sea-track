@@ -45,7 +45,7 @@ export const Aquarium = () => {
                                 })
                         }
                         }>
-                            <Icon name="delete" />
+                            <Icon name="trash" />
                         </Button>
                     </div>
                 </div>
