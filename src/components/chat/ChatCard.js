@@ -11,14 +11,17 @@ export const ChatCard = ({ message }) => {
     if (message.userId === currentUser) {
         return (
             <Message className="message" floating style={{ backgroundColor: "lightgrey" }}>
-                <p className="message--content">{message.mmessage}</p>
+                <p className="message--content">{message.message}</p>
                 <p className="message--userInfo">{message.user.name} on {message.date}</p>
+                <Button circular icon color="red" onClick={() => deleteMessage(message.id)}>
+                    <Icon name="delete" />
+                </Button>
             </Message>
         )
     } else {
         return (
             <Message className="message" floating style={{ backgroundColor: "lightblue" }}>
-                <p className="message--content">{message.mmessage}</p>
+                <p className="message--content">{message.message}</p>
                 <p className="message--userInfo">{message.user.name} on {message.date}</p>
             </Message>
         )

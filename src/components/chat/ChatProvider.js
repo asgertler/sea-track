@@ -20,6 +20,7 @@ export const ChatProvider = (props) => {
             },
             body: JSON.stringify(messageObj)
         })
+            .then(getMessages)
     }
 
     const editMessage = messageObj => {
