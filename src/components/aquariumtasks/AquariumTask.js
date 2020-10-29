@@ -12,12 +12,18 @@ export const AquariumTask = ({ task }) => {
     return (
         <div className="aquariumTask">
             {task.complete === false ?
-                <Checkbox label={task.task} style={{ marginRight: "10px" }} onChange={() => {
+                <Button icon labelPosition="left" className="individualTasks" onClick={() => {
                     task.complete = true
                     completeAquariumTask(task)
-                }} />
+                }}>
+                    <Icon name="check" />
+                    {task.task}
+                </Button>
                 :
-                <Checkbox label={task.task} defaultChecked disabled style={{ marginRight: "10px" }} />
+                <Button icon labelPosition="left" className="individualTasks" disabled>
+                    <Icon name="check" />
+                    {task.task}
+                </Button>
             }
 
             <Modal
@@ -37,3 +43,10 @@ export const AquariumTask = ({ task }) => {
         </div>
     )
 }
+
+/*
+<Checkbox label={task.task} style={{ marginRight: "10px" }} onChange={() => {
+                    task.complete = true
+                    completeAquariumTask(task)
+                }} />
+*/

@@ -6,5 +6,8 @@
 
 h3 {
     margin-bottom: 0 !important;
-    margin-right: 10px !important;
+}
+
+.tasksBtns {
+    margin-left: 5px !important;
 }

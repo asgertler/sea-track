@@ -21,7 +21,7 @@ export const AquariumTasksList = () => {
 
     const thisAquariumTasks = aquariumTasks.filter(task => task.aquariumId === aquariumId)
 
-    const resetTasks = (task) => {
+    const resetTasks = () => {
         thisAquariumTasks.forEach(task => {
             if (task.complete === true) {
                 task.complete = false
@@ -42,14 +42,14 @@ export const AquariumTasksList = () => {
                         open={open}
                         size="tiny"
                         trigger={
-                            <Button icon circular size="mini">
+                            <Button className="tasksBtns" icon circular size="mini">
                                 <Icon name="plus" />
                             </Button>
                         }>
                         <AquariumTasksForm />
                     </Modal>
 
-                    <Button icon circular size="mini" onClick={() => resetTasks()}>
+                    <Button className="tasksBtns" icon circular size="mini" onClick={() => resetTasks()}>
                         <Icon name="refresh" />
                     </Button>
                 </div>
