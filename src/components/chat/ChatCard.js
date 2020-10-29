@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { ChatContext } from "./ChatProvider"
-import { Button, Icon, Message } from "semantic-ui-react"
+import { ChatForm } from "./ChatForm"
+import { Button, Icon, Message, Modal } from "semantic-ui-react"
 
 export const ChatCard = ({ message }) => {
     const { deleteMessage } = useContext(ChatContext)
+    const [open, setOpen] = React.useState(false)
 
     const currentUser = parseInt(localStorage.getItem("seaTrack_user"))
 
@@ -13,6 +15,21 @@ export const ChatCard = ({ message }) => {
             <Message className="message" floating style={{ backgroundColor: "lightgrey" }}>
                 <p className="message--content">{message.message}</p>
                 <p className="message--userInfo">{message.user.name} on {message.date}</p>
+
+                <Modal
+                    onClose={() => setOpen(false)}
+                    onOpen={() => setOpen(true)}
+                    open={open}
+                    size="small"
+                    trigger={
+                        <Button circular icon>
+                            <Icon name="edit" />
+                        </Button>
+                    }>
+                    <ChatForm messageId={message.id} />
+                </Modal>
+
+
                 <Button circular icon color="red" onClick={() => deleteMessage(message.id)}>
                     <Icon name="delete" />
                 </Button>

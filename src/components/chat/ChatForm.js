@@ -3,13 +3,11 @@ import { useHistory, useParams } from "react-router-dom"
 import { ChatContext } from "./ChatProvider"
 import { Button, Container, Header, Icon, Form } from "semantic-ui-react"
 
-export const ChatForm = () => {
+export const ChatForm = props => {
     const { addMessage, getMessageById, editMessage } = useContext(ChatContext)
 
     const [message, setMessage] = useState({})
     const [isLoading, setIsLoading] = useState(false)
-
-    const { messageId } = useParams()
 
     const handleInputChange = (evt) => {
         const newMessage = { ...message }
@@ -18,8 +16,8 @@ export const ChatForm = () => {
     }
 
     useEffect(() => {
-        if (messageId) {
-            getMessageById(messageId)
+        if (props.messageId) {
+            getMessageById(props.messageId)
                 .then(message => {
                     setMessage(message)
                     setIsLoading(false)
@@ -32,9 +30,9 @@ export const ChatForm = () => {
     const constructNewMessage = () => {
         setIsLoading(true)
 
-        if (messageId) {
+        if (props.messageId) {
             editMessage({
-                id: messageId,
+                id: props.messageId,
                 userId: parseInt(localStorage.getItem("seaTrack_user")),
                 message: message.content,
                 date: "edited: " + new Date().toLocaleString("en-US")
@@ -56,7 +54,7 @@ export const ChatForm = () => {
                     constructNewMessage()
                 }}>
                     <Header as='h2' className="messageForm--title">
-                        {messageId ? "Edit Message" : "New Message"}
+                        {props.messageId ? "Edit Message" : "New Message"}
                     </Header>
 
                     <Form.Input
@@ -81,12 +79,12 @@ export const ChatForm = () => {
 
                         <Button positive animated="vertical">
                             <Button.Content visible>
-                                {messageId ? "Edit" : "Send"}
+                                {props.messageId ? "Edit" : "Send"}
                             </Button.Content>
                             <Button.Content type="submit" hidden
                                 className="btn btn-primary"
                                 disabled={isLoading}>
-                                {messageId ? <Icon name="edit" /> : <Icon name="send" />}
+                                {props.messageId ? <Icon name="edit" /> : <Icon name="send" />}
                             </Button.Content>
                         </Button>
                     </Button.Group>
