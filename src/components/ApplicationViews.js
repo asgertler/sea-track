@@ -4,7 +4,7 @@ import { Home } from "./Home"
 import { AquariumForm } from "./aquarium/AquariumForm"
 import { Aquarium } from "./aquarium/Aquarium"
 
-export const ApplicationViews = (props) => {
+export const ApplicationViews = () => {
     return (
         <>
             <Route exact path="/">
