@@ -30,7 +30,7 @@ export const AquariumTasksList = () => {
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
                     open={open}
-                    size="small"
+                    size="tiny"
                     trigger={
                         <Button icon circular>
                             <Icon name="plus" />

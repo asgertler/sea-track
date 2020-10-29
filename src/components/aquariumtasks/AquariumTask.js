@@ -5,13 +5,16 @@ import { AquariumTasksForm } from "./AquariumTasksForm"
 import "./AquariumTasks.css"
 
 export const AquariumTask = ({ task }) => {
-    const { deleteAquariumTask } = useContext(AquariumTasksContext)
+    const { deleteAquariumTask, completeAquariumTask } = useContext(AquariumTasksContext)
 
     const [open, setOpen] = useState(false)
 
     return (
         <div className="aquariumTask">
-            <Checkbox label={task.task} />
+            <Checkbox label={task.task} onChange={() => {
+                task.complete = true
+                completeAquariumTask(task)
+            }} />
 
             <Modal
                 onClose={() => setOpen(false)}

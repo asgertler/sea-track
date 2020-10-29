@@ -45,9 +45,21 @@ export const AquariumTasksProvider = (props) => {
             .then(res => res.json())
     }
 
+    const completeAquariumTask = task => {
+        return fetch(`http://localhost:8088/aquariumTasks/${task.id}`, {
+            method: "PATCH",
+            headers: {
+                "ContentType": "application/json"
+            },
+            body: JSON.stringify(task)
+        })
+            .then(getAquariumTasks)
+    }
+
     return (
         <AquariumTasksContext.Provider value={{
-            aquariumTasks, getAquariumTasks, addAquariumTask, editAquariumTask, deleteAquariumTask, getAquariumTaskById
+            aquariumTasks, getAquariumTasks, addAquariumTask, editAquariumTask,
+            deleteAquariumTask, getAquariumTaskById, completeAquariumTask
         }}>
             {props.children}
         </AquariumTasksContext.Provider>
