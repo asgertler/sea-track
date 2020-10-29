@@ -57,36 +57,48 @@ export const AquariumHistoryForm = props => {
 
     return (
         <Container className="aquariumHistoryFormContainer">
-            <h3 className="fishForm_title">{props.aquariumHistoryId ? "Edit Water Change" : "Log Water Change"}</h3>
+            <h3 className="aquariumHistoryFormName">{props.aquariumHistoryId ? "Edit Water Change" : "Log Water Change"}</h3>
 
             { props.warningTime === true ?
-                <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
-                    You're {props.overdueDays} days overdue for a water change.</strong></span>
+                <div>
+                    <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
+                        You're {props.overdueDays} days overdue for a water change.</strong></span>
+                </div>
                 : ""}
 
             { props.warningPhLow === true ?
-                <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
-                    pH is currently {props.currentPh} but needs to be above {props.phLowMax}.</strong></span>
+                <div>
+                    <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
+                        pH is currently {props.currentPh} but needs to be above {props.phLowMax}.</strong></span>
+                </div>
                 : ""}
 
             { props.warningPhHigh === true ?
-                <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
-                    pH is currently {props.currentPh} but needs to be above {props.phHighMin}</strong></span>
+                <div>
+                    <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
+                        pH is currently {props.currentPh} but needs to be above {props.phHighMin}</strong></span>
+                </div>
                 : ""}
 
             { props.warningAmmonia === true ?
-                <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
-                    Ammonia levels are too high.</strong></span>
+                <div>
+                    <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
+                        Ammonia levels are too high.</strong></span>
+                </div>
                 : ""}
 
             { props.warningNitrite === true ?
-                <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
-                    Nitrite levels are too high.</strong></span>
+                <div>
+                    <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
+                        Nitrite levels are too high.</strong></span>
+                </div>
                 : ""}
 
             { props.warningNitrate === true ?
-                <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
-                    Nitrate levels are too high.</strong></span>
+                <div>
+                    <span><Icon name="warning sign" color="red" /><strong style={{ color: "red" }}>
+                        Nitrate levels are too high.</strong></span>
+                </div>
                 : ""}
 
             <Form className="aquariumHistoryForm" onSubmit={evt => {
