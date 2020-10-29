@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
 import { AquariumTasksContext } from "./AquariumTasksProvider"
 import { Form } from "semantic-ui-react"
 import "./AquariumTasks.css"
 
-export const AquariumTasksForm = () => {
+export const AquariumTasksForm = props => {
     const { getAquariumTasks, addAquariumTask, getAquariumTaskById, editAquariumTask } = useContext(AquariumTasksContext)
 
     const [aquariumTask, setAquariumTask] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
-    const { aquariumTaskId } = useParams()
+    const aquariumTaskId = props.taskId
 
     const aquariumId = parseInt(window.location.pathname.split("/").pop())
 
@@ -37,12 +36,21 @@ export const AquariumTasksForm = () => {
     const constructNewAquariumTask = () => {
         setIsLoading(true)
 
-        addAquariumTask({
-            aquariumId: aquariumId,
-            task: aquariumTask.task,
-            targetDate: aquariumTask.targetDate,
-            complete: false
-        })
+        if (aquariumTaskId) {
+            editAquariumTask({
+                id: aquariumTaskId,
+                task: aquariumTask.task,
+                targetDate: aquariumTask.targetDate
+            })
+        } else {
+
+            addAquariumTask({
+                aquariumId: aquariumId,
+                task: aquariumTask.task,
+                targetDate: aquariumTask.targetDate,
+                complete: false
+            })
+        }
     }
 
     return (

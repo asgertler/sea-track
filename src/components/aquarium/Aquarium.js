@@ -60,8 +60,7 @@ export const Aquarium = () => {
                             <Button>
                                 <Icon name="plus" /> Fish
                             </Button>
-                        }
-                    >
+                        }>
                         <FishForm />
                     </Modal>
 

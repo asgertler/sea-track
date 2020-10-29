@@ -1,14 +1,17 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { AquariumTasksContext } from "./AquariumTasksProvider"
 import { AquariumTask } from "./AquariumTask"
 import { AquariumTasksForm } from "./AquariumTasksForm"
+import { Button, Icon, Modal } from "semantic-ui-react"
 import "./AquariumTasks.css"
 
 export const AquariumTasksList = () => {
     const aquariumId = parseInt(window.location.pathname.split("/").pop())
 
     const { aquariumTasks, getAquariumTasks } = useContext(AquariumTasksContext)
+
+    const [open, setOpen] = useState(false)
 
     const { taskId } = useParams()
 
@@ -23,7 +26,18 @@ export const AquariumTasksList = () => {
             <div>
                 <h3>Weekly Tasks</h3>
 
-                <AquariumTasksForm />
+                <Modal
+                    onClose={() => setOpen(false)}
+                    onOpen={() => setOpen(true)}
+                    open={open}
+                    size="small"
+                    trigger={
+                        <Button icon circular>
+                            <Icon name="plus" />
+                        </Button>
+                    }>
+                    <AquariumTasksForm />
+                </Modal>
 
                 {
                     thisAquariumTasks.map(task => {
