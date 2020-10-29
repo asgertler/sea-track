@@ -9,6 +9,7 @@ import { FishProvider } from "./fish/FishProvider"
 import { AquariumHistoryProvider } from "./aquariumhistory/AquariumHistoryProvider"
 import { AquariumTasksProvider } from "./aquariumtasks/AquariumTasksProvider"
 import { ChatProvider } from "./chat/ChatProvider"
+import { ChatList } from "./chat/ChatList"
 import "./Dashboard.css"
 
 export const Dashboard = () => (
@@ -25,7 +26,10 @@ export const Dashboard = () => (
                                             <AquariumTasksProvider>
                                                 <ChatProvider>
                                                     <NavBar />
-                                                    <ApplicationViews />
+                                                    <div className="userView">
+                                                        <ApplicationViews />
+                                                        <ChatList />
+                                                    </div>
                                                 </ChatProvider>
                                             </AquariumTasksProvider>
                                         </AquariumHistoryProvider>
