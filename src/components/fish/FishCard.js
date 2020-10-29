@@ -55,7 +55,7 @@ export const FishCard = ({ fish }) => {
                                 history.push(`/aquarium/details/${fish.aquariumId}`)
                             })
                     }}>
-                        <Icon name="delete" /> Delete
+                        <Icon name="trash" /> Delete
                     </Button>
                 </div>
             </Card.Content>

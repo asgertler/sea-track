@@ -22,7 +22,7 @@ export const ChatCard = ({ message }) => {
                     open={open}
                     size="small"
                     trigger={
-                        <Button circular icon>
+                        <Button circular icon size="mini">
                             <Icon name="edit" />
                         </Button>
                     }>
@@ -30,8 +30,8 @@ export const ChatCard = ({ message }) => {
                 </Modal>
 
 
-                <Button circular icon color="red" onClick={() => deleteMessage(message.id)}>
-                    <Icon name="delete" />
+                <Button circular icon size="mini" color="red" onClick={() => deleteMessage(message.id)}>
+                    <Icon name="trash" />
                 </Button>
             </Message>
         )

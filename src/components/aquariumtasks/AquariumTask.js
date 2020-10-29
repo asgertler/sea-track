@@ -22,17 +22,17 @@ export const AquariumTask = ({ task }) => {
                 open={open}
                 size="small"
                 trigger={
-                    <Button icon circular>
+                    <Button icon circular size="mini">
                         <Icon name="edit" />
                     </Button>
                 }>
                 <AquariumTasksForm taskId={task.id} />
             </Modal>
 
-            <Button icon circular color="red" onClick={() => {
+            <Button icon circular color="red" size="mini" onClick={() => {
                 deleteAquariumTask(task.id)
             }}>
-                <Icon name="delete" />
+                <Icon name="trash" />
             </Button>
         </div>
     )
