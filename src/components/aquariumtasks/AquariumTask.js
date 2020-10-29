@@ -12,7 +12,7 @@ export const AquariumTask = ({ task }) => {
     return (
         <div className="aquariumTask">
             {task.complete === false ?
-                <Button icon labelPosition="left" className="individualTasks" onClick={() => {
+                <Button icon labelPosition="left" className="individualTasks" basic onClick={() => {
                     task.complete = true
                     completeAquariumTask(task)
                 }}>
@@ -43,10 +43,3 @@ export const AquariumTask = ({ task }) => {
         </div>
     )
 }
-
-/*
-<Checkbox label={task.task} style={{ marginRight: "10px" }} onChange={() => {
-                    task.complete = true
-                    completeAquariumTask(task)
-                }} />
-*/
