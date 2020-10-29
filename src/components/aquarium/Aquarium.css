@@ -21,4 +21,16 @@
     display: flex;
     flex-flow: row norwap;
     justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.aquarium__intro {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.aquarium__intro h2 {
+    margin-bottom: 0 !important;
+    margin-right: 25px !important;
 }

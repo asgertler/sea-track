@@ -29,8 +29,22 @@ export const Aquarium = () => {
         <Container>
             <section className="aquarium">
                 <div className="aquarium__header">
-                    <h2 className="aquarium__name"><strong>{aquarium.name}</strong> / {aquarium.gal} gal</h2>
+                    <div className="aquarium__intro">
+                        <h2 className="aquarium__name"><strong>{aquarium.name}</strong> / {aquarium.gal} gal</h2>
 
+                        <Modal
+                            onClose={() => setOpen(false)}
+                            onOpen={() => setOpen(true)}
+                            open={open}
+                            size="small"
+                            trigger={
+                                <Button>
+                                    <Icon name="plus" /> Fish
+                            </Button>
+                            }>
+                            <FishForm />
+                        </Modal>
+                    </div>
                     <div className="aquarium__buttons">
                         <Button icon circular onClick={() => {
                             history.push(`/aquarium/edit/${aquarium.id}`)
@@ -51,19 +65,6 @@ export const Aquarium = () => {
                 </div>
 
                 <section className="aquarium__fish">
-                    <Modal
-                        onClose={() => setOpen(false)}
-                        onOpen={() => setOpen(true)}
-                        open={open}
-                        size="small"
-                        trigger={
-                            <Button>
-                                <Icon name="plus" /> Fish
-                            </Button>
-                        }>
-                        <FishForm />
-                    </Modal>
-
                     <FishList />
                     <AquariumHistoryList />
                     <AquariumTasksList />
