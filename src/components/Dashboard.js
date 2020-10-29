@@ -8,6 +8,7 @@ import { AquariumProvider } from "./aquarium/AquariumProvider"
 import { FishProvider } from "./fish/FishProvider"
 import { AquariumHistoryProvider } from "./aquariumhistory/AquariumHistoryProvider"
 import { AquariumTasksProvider } from "./aquariumtasks/AquariumTasksProvider"
+import { ChatProvider } from "./chat/ChatProvider"
 import "./Dashboard.css"
 
 export const Dashboard = () => (
@@ -22,8 +23,10 @@ export const Dashboard = () => (
                                     <FishProvider>
                                         <AquariumHistoryProvider>
                                             <AquariumTasksProvider>
-                                                <NavBar />
-                                                <ApplicationViews />
+                                                <ChatProvider>
+                                                    <NavBar />
+                                                    <ApplicationViews />
+                                                </ChatProvider>
                                             </AquariumTasksProvider>
                                         </AquariumHistoryProvider>
                                     </FishProvider>
