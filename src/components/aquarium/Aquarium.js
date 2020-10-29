@@ -5,6 +5,7 @@ import { Button, Container, Icon, Modal } from "semantic-ui-react"
 import { FishList } from "../fish/FishList"
 import { FishForm } from "../fish/FishForm"
 import { AquariumHistoryList } from "../aquariumhistory/AquariumHistoryList"
+import { AquariumTasksList } from "../aquariumtasks/AquariumTasksList"
 import "./Aquarium.css"
 
 export const Aquarium = () => {
@@ -59,13 +60,13 @@ export const Aquarium = () => {
                             <Button>
                                 <Icon name="plus" /> Fish
                             </Button>
-                        }
-                    >
+                        }>
                         <FishForm />
                     </Modal>
 
                     <FishList />
                     <AquariumHistoryList />
+                    <AquariumTasksList />
                 </section>
             </section>
         </Container>
