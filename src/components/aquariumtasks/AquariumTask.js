@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { AquariumTasksContext } from "./AquariumTasksProvider"
-import { Checkbox } from "semantic-ui-react"
+import { Button, Checkbox, Icon } from "semantic-ui-react"
 import "./AquariumTasks.css"
 
 export const AquariumTask = ({ task }) => {
@@ -10,6 +10,12 @@ export const AquariumTask = ({ task }) => {
     return (
         <div className="aquariumTask">
             <Checkbox label={task.task} />
+
+            <Button icon circular color="red" onClick={() => {
+                deleteAquariumTask(task.id)
+            }}>
+                <Icon name="delete" />
+            </Button>
         </div>
     )
 }

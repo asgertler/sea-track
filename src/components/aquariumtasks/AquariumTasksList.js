@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { AquariumTasksContext } from "./AquariumTasksProvider"
 import { AquariumTask } from "./AquariumTask"
+import { AquariumTasksForm } from "./AquariumTasksForm"
 import "./AquariumTasks.css"
 
 export const AquariumTasksList = () => {
@@ -21,6 +22,9 @@ export const AquariumTasksList = () => {
         <>
             <div>
                 <h3>Weekly Tasks</h3>
+
+                <AquariumTasksForm />
+
                 {
                     thisAquariumTasks.map(task => {
                         return <AquariumTask key={task.id} task={task} />
