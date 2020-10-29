@@ -30,6 +30,8 @@ export const AquariumTasksList = () => {
         })
     }
 
+    const incompleteTasks = thisAquariumTasks.filter(task => task.complete === false)
+
     return (
         <>
             <div>
@@ -54,11 +56,21 @@ export const AquariumTasksList = () => {
                     </Button>
                 </div>
 
-                {
-                    thisAquariumTasks.map(task => {
-                        return <AquariumTask key={task.id} task={task} />
-                    })
+                {incompleteTasks.length > 0 ?
+                    <div>
+                        {
+                            thisAquariumTasks.map(task => {
+                                return <AquariumTask key={task.id} task={task} />
+                            })
+                        }
+                    </div>
+                    :
+                    <span>
+                        <Icon name="thumbs up outline" />All Tasks Completed!
+                    </span>
                 }
+
+
             </div>
         </>
     )
