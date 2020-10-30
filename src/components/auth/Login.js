@@ -1,7 +1,8 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
-import { Container, Form } from "semantic-ui-react"
+import { Container, Divider, Form } from "semantic-ui-react"
+import logo from "../../img/seaTrack_logo.png"
 import video from "../../video/seaTrack_vid.mp4"
 import "./Login.css"
 
@@ -41,6 +42,9 @@ export const Login = props => {
 
                 <Container className="form--container" text={true}>
                     <Form className="form--login" onSubmit={handleLogin}>
+                        <img src={logo} alt="Sea Track logo" className="loginLogo" />
+                        <Divider className="globalDivide" />
+
                         <h1>Sea Track</h1>
                         <h2>Login</h2>
 
