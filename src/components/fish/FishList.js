@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { FishContext } from "./FishProvider"
 import { FishCard } from "./FishCard"
-import { Card } from "semantic-ui-react"
+import { Card, Divider } from "semantic-ui-react"
 import "./Fish.css"
 
 export const FishList = () => {
@@ -27,6 +27,8 @@ export const FishList = () => {
                     })
                 }
             </Card.Group>
+
+            <Divider className="globalDivide" />
         </>
     )
 }

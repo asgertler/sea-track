@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { AquariumHistoryContext } from "./AquariumHistoryProvider"
 import { Container, Form } from "semantic-ui-react"
-import { Icon } from "semantic-ui-react"
+import { Divider, Icon } from "semantic-ui-react"
 import "./AquariumHistory.css"
 
 export const AquariumHistoryForm = props => {
@@ -191,6 +191,8 @@ export const AquariumHistoryForm = props => {
                     Save
                 </Form.Button>
             </Form>
+
+            <Divider className="globalDivide" />
         </Container >
     )
 }

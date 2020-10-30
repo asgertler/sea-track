@@ -3,7 +3,11 @@
 }
 
 .aquariumHistory {
-    margin-bottom: 25px !important;
+    margin-bottom: 30px !important;
+}
+
+.aquariumHistoryFormContainer {
+    margin-top: 25px !important;
 }
 
 .aquariumHistoryForm {
@@ -13,4 +17,8 @@
 
 .aquariumHistoryFormName {
     margin-bottom: 10px !important;
+}
+
+.aquariumHistory h3 {
+    margin-top: 25px !important;
 }

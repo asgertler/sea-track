@@ -1,3 +1,8 @@
+.aquariumTasksContainer {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+}
+
 .aquariumTasksHeader {
     display: flex;
     flex-flow: row nowrap;
