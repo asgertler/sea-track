@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { AquariumTasksContext } from "./AquariumTasksProvider"
 import { AquariumTask } from "./AquariumTask"
 import { AquariumTasksForm } from "./AquariumTasksForm"
-import { Button, Icon, Modal } from "semantic-ui-react"
+import { Button, Divider, Icon, Modal } from "semantic-ui-react"
 import "./AquariumTasks.css"
 
 export const AquariumTasksList = () => {
@@ -34,7 +34,9 @@ export const AquariumTasksList = () => {
 
     return (
         <>
-            <div>
+            <Divider className="globalDivide" />
+
+            <div className="aquariumTasksContainer">
                 <div className="aquariumTasksHeader">
                     <h3>Weekly Tasks</h3>
 
@@ -69,9 +71,9 @@ export const AquariumTasksList = () => {
                         <Icon name="thumbs up outline" />All Tasks Completed!
                     </span>
                 }
-
-
             </div>
+
+            <Divider className="globalDivide" />
         </>
     )
 }

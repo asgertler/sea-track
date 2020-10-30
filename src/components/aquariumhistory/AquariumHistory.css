@@ -1,3 +1,24 @@
 .editModal {
     padding: 25px;
 }
+
+.aquariumHistory {
+    margin-bottom: 30px !important;
+}
+
+.aquariumHistoryFormContainer {
+    margin-top: 25px !important;
+}
+
+.aquariumHistoryForm {
+    margin-top: 10px !important;
+    margin-bottom: 25px !important;
+}
+
+.aquariumHistoryFormName {
+    margin-bottom: 10px !important;
+}
+
+.aquariumHistory h3 {
+    margin-top: 25px !important;
+}
