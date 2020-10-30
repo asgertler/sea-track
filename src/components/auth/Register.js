@@ -64,24 +64,23 @@ export const Register = (props) => {
 
     return (
         <>
-            <main className="container--login">
+            <main className="container--login" >
+
                 <dialog className="dialog dialog--password" ref={conflictDialog}>
                     <div>Account with that email address already exists</div>
                     <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
                 </dialog>
 
                 <Container className="form--container" text={true}>
-                    <h2>Register for Sea Track</h2>
-
                     <Form className="form--login" onSubmit={handleRegister}>
-                        <Form.Field className="login--field">
-                            <label> First Name </label>
-                            <input ref={firstName} type="text" name="firstName" className="form-control"
-                                placeholder="First name" required autoFocus />
+                        <h2 className="h3 mb-3 font-weight-normal">Join Sea Track</h2>
 
-                            <label> Last Name </label>
-                            <input ref={lastName} type="text" name="lastName" className="form-control"
-                                placeholder="Last name" required />
+                        <Form.Field>
+                            <label htmlFor="firstName"> First Name </label>
+                            <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
+
+                            <label htmlFor="lastName"> Last Name </label>
+                            <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
 
                             <label htmlFor="inputEmail"> Email address </label>
                             <input ref={email} type="email" name="email" className="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email address" required />
@@ -96,14 +95,13 @@ export const Register = (props) => {
                                 })}
                             </select>
 
-                            <label> Zipcode </label>
                             <input ref={zip} type="text" name="zip" className="form-control" pattern="[0-9]{5}" maxLength="5" placeholder="Zipcode" required />
 
-                            <Form.Group>
-                                <Form.Button type="button" onClick={() => {
+                            <Form.Group className="registrationBtns">
+                                <Form.Button type="Form.Button" onClick={() => {
                                     history.push("/login")
                                 }}> Cancel </Form.Button>
-                                <Form.Button primary type="submit"> Register </Form.Button>
+                                <Form.Button type="submit" primary> Register </Form.Button>
                             </Form.Group>
                         </Form.Field>
                     </Form>
