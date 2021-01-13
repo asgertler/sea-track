@@ -6,13 +6,13 @@ export const AquariumProvider = (props) => {
     const [aquariums, setAquariums] = useState([])
 
     const getAquariums = () => {
-        return fetch("http://localhost:8088/aquariums?_expand=user")
+        return fetch("http://sea-track.herokuapp.com/aquariums?_expand=user")
             .then(res => res.json())
             .then(setAquariums)
     }
 
     const addAquarium = obj => {
-        return fetch("http://localhost:8088/aquariums", {
+        return fetch("http://sea-track.herokuapp.com/aquariums", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -23,7 +23,7 @@ export const AquariumProvider = (props) => {
     }
 
     const editAquarium = obj => {
-        return fetch(`http://localhost:8088/aquariums/${obj.id}`, {
+        return fetch(`http://sea-track.herokuapp.com/aquariums/${obj.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -34,14 +34,14 @@ export const AquariumProvider = (props) => {
     }
 
     const deleteAquarium = id => {
-        return fetch(`http://localhost:8088/aquariums/${id}`, {
+        return fetch(`http://sea-track.herokuapp.com/aquariums/${id}`, {
             method: "DELETE"
         })
             .then(getAquariums)
     }
 
     const getAquariumById = id => {
-        return fetch(`http://localhost:8088/aquariums/${id}`)
+        return fetch(`http://sea-track.herokuapp.com/aquariums/${id}`)
             .then(res => res.json())
     }
 
