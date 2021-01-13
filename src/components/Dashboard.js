@@ -1,5 +1,5 @@
 import React from "react"
-import { Route, Redirect } from "react-router-dom"
+import { HashRouter, Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
@@ -14,42 +14,44 @@ import "./Dashboard.css"
 
 export const Dashboard = () => (
     <>
-        <Route
-            render={() => {
-                if (localStorage.getItem("seaTrack_user")) {
-                    return (
-                        <>
-                            <div className="dashboardView">
-                                <AquariumProvider>
-                                    <FishProvider>
-                                        <AquariumHistoryProvider>
-                                            <AquariumTasksProvider>
-                                                <ChatProvider>
-                                                    <NavBar />
-                                                    <div className="userView">
-                                                        <ApplicationViews />
-                                                        <ChatList />
-                                                    </div>
-                                                </ChatProvider>
-                                            </AquariumTasksProvider>
-                                        </AquariumHistoryProvider>
-                                    </FishProvider>
-                                </AquariumProvider>
-                            </div>
-                        </>
-                    )
-                } else {
-                    return <Redirect to="/login" />
-                }
-            }}
-        />
+        <HashRouter basename='/'>
+            <Route
+                render={() => {
+                    if (localStorage.getItem("seaTrack_user")) {
+                        return (
+                            <>
+                                <div className="dashboardView">
+                                    <AquariumProvider>
+                                        <FishProvider>
+                                            <AquariumHistoryProvider>
+                                                <AquariumTasksProvider>
+                                                    <ChatProvider>
+                                                        <NavBar />
+                                                        <div className="userView">
+                                                            <ApplicationViews />
+                                                            <ChatList />
+                                                        </div>
+                                                    </ChatProvider>
+                                                </AquariumTasksProvider>
+                                            </AquariumHistoryProvider>
+                                        </FishProvider>
+                                    </AquariumProvider>
+                                </div>
+                            </>
+                        )
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }}
+            />
 
-        <Route exact path="/login">
-            <Login />
-        </Route>
+            <Route exact path="/login">
+                <Login />
+            </Route>
 
-        <Route exact path="/register">
-            <Register />
-        </Route>
+            <Route exact path="/register">
+                <Register />
+            </Route>
+        </HashRouter>
     </>
 )

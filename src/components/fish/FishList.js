@@ -6,7 +6,7 @@ import { Card, Divider } from "semantic-ui-react"
 import "./Fish.css"
 
 export const FishList = () => {
-    const aquariumId = parseInt(window.location.pathname.split("/").pop())
+    const aquariumId = parseInt(window.location.href.split("/").pop())
 
     const { fish, getFish } = useContext(FishContext)
 
