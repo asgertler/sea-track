@@ -39,16 +39,16 @@ export const Dashboard = () => (
                         </>
                     )
                 } else {
-                    return <Redirect to="/login" />
+                    return <Redirect to="/sea-track/login" />
                 }
             }}
         />
 
-        <Route exact path="/login">
+        <Route exact path="/sea-track/login">
             <Login />
         </Route>
 
-        <Route exact path="/register">
+        <Route exact path="/sea-track/register">
             <Register />
         </Route>
     </>
