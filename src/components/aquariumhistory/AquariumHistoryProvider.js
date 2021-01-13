@@ -6,13 +6,13 @@ export const AquariumHistoryProvider = (props) => {
     const [aquariumHistory, setAquariumHistory] = useState([])
 
     const getAquariumHistory = () => {
-        return fetch("http://sea-track.herokuapp.com/aquariumHistory?_expand=aquarium")
+        return fetch("https://sea-track.herokuapp.com/aquariumHistory?_expand=aquarium")
             .then(res => res.json())
             .then(setAquariumHistory)
     }
 
     const addAquariumHistory = obj => {
-        return fetch("http://sea-track.herokuapp.com/aquariumHistory", {
+        return fetch("https://sea-track.herokuapp.com/aquariumHistory", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -23,7 +23,7 @@ export const AquariumHistoryProvider = (props) => {
     }
 
     const editAquariumHistory = obj => {
-        return fetch(`http://sea-track.herokuapp.com/aquariumHistory/${obj.id}`, {
+        return fetch(`https://sea-track.herokuapp.com/aquariumHistory/${obj.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -34,14 +34,14 @@ export const AquariumHistoryProvider = (props) => {
     }
 
     const deleteAquariumHistory = id => {
-        return fetch(`http://sea-track.herokuapp.com/aquariumHistory/${id}`, {
+        return fetch(`https://sea-track.herokuapp.com/aquariumHistory/${id}`, {
             method: "DELETE"
         })
             .then(getAquariumHistory)
     }
 
     const getAquariumHistoryById = id => {
-        return fetch(`http://sea-track.herokuapp.com/aquariumHistory/${id}`)
+        return fetch(`https://sea-track.herokuapp.com/aquariumHistory/${id}`)
             .then(res => res.json())
     }
 

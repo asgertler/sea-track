@@ -6,13 +6,13 @@ export const FishProvider = (props) => {
     const [fish, setFish] = useState([])
 
     const getFish = () => {
-        return fetch("http://sea-track.herokuapp.com/fish?_expand=user&_expand=aquarium")
+        return fetch("https://sea-track.herokuapp.com/fish?_expand=user&_expand=aquarium")
             .then(res => res.json())
             .then(setFish)
     }
 
     const addFish = obj => {
-        return fetch("http://sea-track.herokuapp.com/fish", {
+        return fetch("https://sea-track.herokuapp.com/fish", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -23,7 +23,7 @@ export const FishProvider = (props) => {
     }
 
     const editFish = obj => {
-        return fetch(`http://sea-track.herokuapp.com/fish/${obj.id}`, {
+        return fetch(`https://sea-track.herokuapp.com/fish/${obj.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -34,14 +34,14 @@ export const FishProvider = (props) => {
     }
 
     const deleteFish = id => {
-        return fetch(`http://sea-track.herokuapp.com/fish/${id}`, {
+        return fetch(`https://sea-track.herokuapp.com/fish/${id}`, {
             method: "DELETE"
         })
             .then(getFish)
     }
 
     const getFishById = id => {
-        return fetch(`http://sea-track.herokuapp.com/fish/${id}`)
+        return fetch(`https://sea-track.herokuapp.com/fish/${id}`)
             .then(res => res.json())
     }
 
