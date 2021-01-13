@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sea-track/static/css/main.4763f3e0.chunk.css",
-    "main.js": "/sea-track/static/js/main.23006787.chunk.js",
-    "main.js.map": "/sea-track/static/js/main.23006787.chunk.js.map",
+    "main.js": "/sea-track/static/js/main.6b384460.chunk.js",
+    "main.js.map": "/sea-track/static/js/main.6b384460.chunk.js.map",
     "runtime-main.js": "/sea-track/static/js/runtime-main.9459d565.js",
     "runtime-main.js.map": "/sea-track/static/js/runtime-main.9459d565.js.map",
     "static/css/2.be27a9ac.chunk.css": "/sea-track/static/css/2.be27a9ac.chunk.css",
     "static/js/2.4e5ab3dd.chunk.js": "/sea-track/static/js/2.4e5ab3dd.chunk.js",
     "static/js/2.4e5ab3dd.chunk.js.map": "/sea-track/static/js/2.4e5ab3dd.chunk.js.map",
     "index.html": "/sea-track/index.html",
-    "precache-manifest.330f75f9b1146db1ef58ec86304495f0.js": "/sea-track/precache-manifest.330f75f9b1146db1ef58ec86304495f0.js",
+    "precache-manifest.999d54477828127fd28b306c84d1f012.js": "/sea-track/precache-manifest.999d54477828127fd28b306c84d1f012.js",
     "service-worker.js": "/sea-track/service-worker.js",
     "static/css/2.be27a9ac.chunk.css.map": "/sea-track/static/css/2.be27a9ac.chunk.css.map",
     "static/css/main.4763f3e0.chunk.css.map": "/sea-track/static/css/main.4763f3e0.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.be27a9ac.chunk.css",
     "static/js/2.4e5ab3dd.chunk.js",
     "static/css/main.4763f3e0.chunk.css",
-    "static/js/main.23006787.chunk.js"
+    "static/js/main.6b384460.chunk.js"
   ]
 }

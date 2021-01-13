@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "141bc0023f85ca5afa58175040255674",
+    "revision": "656ab9e82791751aadfb774c1ab39f5a",
     "url": "/sea-track/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sea-track/static/css/2.be27a9ac.chunk.css"
   },
   {
-    "revision": "bc73c7f0ac4d5b9cb92f",
+    "revision": "b49138bcbbfd6128f76b",
     "url": "/sea-track/static/css/main.4763f3e0.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sea-track/static/js/2.4e5ab3dd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bc73c7f0ac4d5b9cb92f",
-    "url": "/sea-track/static/js/main.23006787.chunk.js"
+    "revision": "b49138bcbbfd6128f76b",
+    "url": "/sea-track/static/js/main.6b384460.chunk.js"
   },
   {
     "revision": "afb4e895e992f1b6288a",
