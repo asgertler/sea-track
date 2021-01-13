@@ -14,7 +14,7 @@ export const ChatCard = ({ message }) => {
         return (
             <Message className="message" floating style={{ backgroundColor: "lightgrey" }}>
                 <p className="message--content">{message.message}</p>
-                <p className="message--userInfo">{message.user.name} on {message.date}</p>
+                <p className="message--userInfo">{message.user.name} {message.date}</p>
 
                 <Modal
                     onClose={() => setOpen(false)}
@@ -39,7 +39,7 @@ export const ChatCard = ({ message }) => {
         return (
             <Message className="message" floating style={{ backgroundColor: "lightblue" }}>
                 <p className="message--content">{message.message}</p>
-                <p className="message--userInfo">{message.user.name} on {message.date}</p>
+                <p className="message--userInfo">{message.user.name} {message.date}</p>
             </Message>
         )
     }

@@ -24,7 +24,7 @@ export const ChatList = () => {
                 }
             </div>
 
-            <Modal
+            <Modal id='chatModal'
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
                 open={open}
