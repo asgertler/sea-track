@@ -7,7 +7,7 @@ import { Button, Divider, Icon, Modal } from "semantic-ui-react"
 import "./AquariumTasks.css"
 
 export const AquariumTasksList = () => {
-    const aquariumId = parseInt(window.location.pathname.split("/").pop())
+    const aquariumId = parseInt(window.location.href.split("/").pop())
 
     const { aquariumTasks, getAquariumTasks, completeAquariumTask } = useContext(AquariumTasksContext)
 

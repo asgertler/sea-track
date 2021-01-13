@@ -8,7 +8,7 @@ import { Card, Container } from "semantic-ui-react"
 import "./AquariumHistory.css"
 
 export const AquariumHistoryList = () => {
-    const aquariumId = parseInt(window.location.pathname.split("/").pop())
+    const aquariumId = parseInt(window.location.href.split("/").pop())
 
     const { aquariumHistory, getAquariumHistory } = useContext(AquariumHistoryContext)
     const { fish, getFish } = useContext(FishContext)
