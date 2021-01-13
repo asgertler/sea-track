@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/sea-track/precache-manifest.6ca647254df4a93458fa331c839e0587.js"
+  "/sea-track/precache-manifest.056a82f62702a4d6a0214f77c0f7318f.js"
 );
 
 self.addEventListener('message', (event) => {
