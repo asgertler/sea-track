@@ -7,13 +7,13 @@ export const ChatProvider = (props) => {
     const [messages, setMessages] = useState([])
 
     const getMessages = () => {
-        return fetch("http://sea-track.herokuapp.com/messages?_expand=user")
+        return fetch("https://sea-track.herokuapp.com/messages?_expand=user")
             .then(res => res.json())
             .then(setMessages)
     }
 
     const addMessage = messageObj => {
-        return fetch("http://sea-track.herokuapp.com/messages", {
+        return fetch("https://sea-track.herokuapp.com/messages", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -24,7 +24,7 @@ export const ChatProvider = (props) => {
     }
 
     const editMessage = messageObj => {
-        return fetch(`http://sea-track.herokuapp.com/messages/${messageObj.id}`, {
+        return fetch(`https://sea-track.herokuapp.com/messages/${messageObj.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -35,14 +35,14 @@ export const ChatProvider = (props) => {
     }
 
     const deleteMessage = messageId => {
-        return fetch(`http://sea-track.herokuapp.com/messages/${messageId}`, {
+        return fetch(`https://sea-track.herokuapp.com/messages/${messageId}`, {
             method: "DELETE"
         })
             .then(getMessages)
     }
 
     const getMessageById = id => {
-        return fetch(`http://sea-track.herokuapp.com/messages/${id}`)
+        return fetch(`https://sea-track.herokuapp.com/messages/${id}`)
             .then(res => res.json())
     }
 
