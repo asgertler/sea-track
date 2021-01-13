@@ -22,7 +22,7 @@ export const Register = (props) => {
     ]
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
+        return fetch(`http://sea-track.herokuapp.com/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }
