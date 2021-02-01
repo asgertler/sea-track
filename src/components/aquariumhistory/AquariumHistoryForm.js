@@ -10,7 +10,7 @@ export const AquariumHistoryForm = props => {
     const [aquariumHistory, setAquariumHistory] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
-    const aquariumId = parseInt(window.location.pathname.split("/").pop())
+    const aquariumId = parseInt(window.location.href.split("/").pop())
 
     const handleControlledInputChange = (evt) => {
         const newAquariumHistory = { ...aquariumHistory }

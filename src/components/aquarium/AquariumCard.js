@@ -7,7 +7,7 @@ export const AquariumCard = ({ aquarium }) => (
     <section className="aquarium__card">
         <Link to={`/aquarium/details/${aquarium.id}`}>
             <div className="aquarium__image">
-                <img src={image} alt="Aquarium Photo" />
+                <img src={image} alt="Aquarium Icon" />
             </div>
         </Link>
     </section>
