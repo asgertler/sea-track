@@ -70,3 +70,8 @@ From there, I translated those initial ideas into more fleshed-out personas:
 ![Experienced Aquarist](https://asgertler.github.io/static/media/levi-walton.d5c24a8a.png)
 
 ![Proffessional Aquarist](https://asgertler.github.io/static/media/sulema-barba.a09188fc.png)
+
+Using the information gained from creating these personas and receiving feedback from teammates about them, I turned my focus to my ERD that would be the fundamental basis for this entire project in order to effectively achieve CRUD:
+
+![ERD](https://asgertler.github.io/static/media/sea-track-erd.61e1212a.png)
+
