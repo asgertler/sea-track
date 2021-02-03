@@ -1,68 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to Sea Track, My Front-End Capstone
 
-## Available Scripts
+Visit the live site [here](https://asgertler.github.io/sea-track/#/).
 
-In the project directory, you can run:
+![Sea Track Card](https://asgertler.github.io/static/media/seaTrackCard.e1228e7c.png)
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- CSS3
+- Heroku
+- HTML5
+- Illustrator
+- Javascript
+- JSON Server
+- React
+- Semantic UI
+- VSCode
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Client
 
-### `npm test`
+Aquarists & Aquarium Hobbyists
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Product
 
-### `npm run build`
+Water quality logging and tracking app
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Role
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Lead UI/UX Designer & Front-End Developer
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Challenge
 
-### `npm run eject`
+How might we make it easier and more efficient to log and track the health and quality of aquariums accurately over time?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Process
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project began with identifying who our target audience is and what their needs and pain poitns are. I started by writing down three primary types of users:  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Experienced Hobbyist** *(User, Customer, Influencer)*
+    - Probably older, 30s-50s
+    - Fairly tech savvy
+    - Early adopter/majority
+    - Decent income
+    - Keeps good logs
+    - Wants easier tracking
+    - Less clutter
+    - Tired of spreadsheets
+- **Beginner/New to Hobby** *(User)*
+    - Any age, probably younger
+    - May be less tech inclined
+    - Late majority
+    - Wide income range, probably lower
+    - Unfamiliar with logging
+    - Not ready for complicated
+    - One-stop-shop
+- **Proffessional** *(User, Customer, Influencer)*
+    - Probably older, 40s+
+    - Very tech savvy
+    - Early adopter/innovator
+    - Solid budgets, within reason
+    - Keeps extensive logs
+    - Needs to track large systems
+    - Record-keeping vital
+    - Lots of users
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+From there, I translated those initial ideas into more fleshed-out personas:
 
-## Learn More
+![New Aquarist](https://asgertler.github.io/static/media/hazel-floyd.c4e83e22.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Experienced Aquarist](https://asgertler.github.io/static/media/levi-walton.d5c24a8a.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![Proffessional Aquarist](https://asgertler.github.io/static/media/sulema-barba.a09188fc.png)
