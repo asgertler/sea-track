@@ -1,4 +1,4 @@
-# Welcome to Sea Track, My Front-End Capstone
+# Welcome to Sea Track, My Front-End Capstone for Nashville Software School
 
 Visit the live site [here](https://asgertler.github.io/sea-track/#/).
 
@@ -6,6 +6,7 @@ Visit the live site [here](https://asgertler.github.io/sea-track/#/).
 
 ## Technologies Used
 
+- Dbdiagram
 - CSS3
 - Heroku
 - HTML5
@@ -75,3 +76,18 @@ Using the information gained from creating these personas and receiving feedback
 
 ![ERD](https://asgertler.github.io/static/media/sea-track-erd.61e1212a.png)
 
+Next was to create an initial wireframe to give myself direction once I began actually developing the application:
+
+![Wireframe](https://asgertler.github.io/static/media/sea-track-wireframe.bd96a0fb.png)
+
+With all of that information in hand, I set out to create Sea Track using React. The initial build phase in order to meet MVP for my NSS front-end capstone took about two weeks. In the end, I successfully built (and eventually deployed) a working application that allows users to create accounts (unsecure, for learning purposes), create aquariums, add fish to aquariums, create tasks, and log water quality. All of those elements successfully met MVP via CRUD. I also implemented a series of warnings set up to track certain water conditions against safe ranges the user puts onto their fish, such as a healthy pH range. It can also warn the user if they are overdue for a water change.
+
+![Site Screenshot](https://asgertler.github.io/static/media/sea-track-site.29a17702.png)
+
+After completing my capstone project, I went ahead and deployed the React side of the app on GitHub Pages and hosted the database on Heroku so that the site could be live tested/demoed as well as giving me a chance to learn about fully deploying an application.
+
+## Success
+
+- Completed my front-end capstone project for Nashville Software School by creating an app in React and hitting CRUD.
+- Learned how useful a solid planned ERD is for efficiently creating usable database structures.
+- Fully deployed my app for testing and demoing purposes by utilizing GitHub Pages and Heroku.
