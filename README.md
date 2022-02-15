@@ -1,4 +1,4 @@
-# Welcome to Sea Track, My Front-End Capstone for Nashville Software School
+# Sea Track, My Front-End Capstone for Nashville Software School
 
 Visit the live site [here](https://asgertler.github.io/sea-track/#/).
 
