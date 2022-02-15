@@ -1,15 +1,17 @@
 # Sea Track, My Front-End Capstone for Nashville Software School
 
-Visit the live site [here](https://asgertler.github.io/sea-track/#/).
+Visit the live site [here](https://asgertler.github.io/sea-track/).
 
 ## Technologies Used
 
 - Dbdiagram
 - CSS3
+- Figma
+- Firebase (WIP)
 - Heroku
 - HTML5
 - Illustrator
-- Javascript
+- JavaScript
 - JSON Server
 - React
 - Semantic UI
