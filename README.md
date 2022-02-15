@@ -2,8 +2,6 @@
 
 Visit the live site [here](https://asgertler.github.io/sea-track/#/).
 
-![Sea Track Card](https://asgertler.github.io/static/media/seaTrackCard.e1228e7c.png)
-
 ## Technologies Used
 
 - Dbdiagram
